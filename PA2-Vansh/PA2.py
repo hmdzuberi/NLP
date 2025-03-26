@@ -103,7 +103,7 @@ def main():
         log = open(sys.argv[1], "a+", encoding="utf-8")
         log.write(f"--- Log started at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ---\n\n")
         log.flush()
-        print("This is a QA system")how 
+        print("This is a QA system")
         print("It will try to answer questions that start with Who, What, When or Where.")
         print("Enter 'exit' to leave the program.\n")
         counter = 1

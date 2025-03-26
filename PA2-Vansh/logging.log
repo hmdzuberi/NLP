@@ -1,0 +1,386 @@
+--- Log started at 2025-03-26 14:58:09 ---
+
+1 Q) Where is the Taj Mahal?
+1 DEBUG: Parsed question - qtype: where, subject: the Taj Mahal, keyword: None
+1 DEBUG: Initiating Wikipedia search for subject: the Taj Mahal
+1 DEBUG: Raw Wikipedia summary: The Taj Mahal ( TAHJ mə-HAHL, TAHZH -⁠; Hindi: [taːdʒ ˈmɛɦ(ɛ)l]; lit. 'Crown of the Palace') is an ivory-white marble mausoleum on the right bank of the river Yamuna in Agra, Uttar Pradesh, India.
+1 DEBUG: NER tags for subject: [('the', 'DT', 'O'), ('Taj', 'NNP', 'B-ORGANIZATION'), ('Mahal', 'NNP', 'I-ORGANIZATION')]
+1 DEBUG: Extracted location: the right bank of the river yamuna in agra, uttar pradesh, india.
+1 A) the Taj Mahal is located in the right bank of the river yamuna in agra, uttar pradesh, india..
+
+2 Q) Who is George Mason?
+2 DEBUG: Parsed question - qtype: who, subject: George Mason, keyword: None
+2 DEBUG: Initiating Wikipedia search for subject: George Mason
+2 DEBUG: Raw Wikipedia summary: George Mason (December 11, 1725 [O.S. November 30, 1725] – October 7, 1792) was an American planter, politician, Founding Father, and delegate to the U.S. Constitutional Convention in Philadelphia in 1787, where he was one of three delegates who refused to sign the Constitution.
+2 DEBUG: NER tags for subject: [('George', 'NNP', 'B-PERSON'), ('Mason', 'NNP', 'B-PERSON')]
+2 A) George Mason (December 11, 1725 [O.S. November 30, 1725] – October 7, 1792) was an American planter, politician, Founding Father, and delegate to the U.S. Constitutional Convention in Philadelphia in 1787, where he was one of three delegates who refused to sign the Constitution.
+
+3 Q) Where is George Mason University?
+3 DEBUG: Parsed question - qtype: where, subject: George Mason University, keyword: None
+3 DEBUG: Initiating Wikipedia search for subject: George Mason University
+3 DEBUG: Raw Wikipedia summary: George Mason University (GMU) is a public research university in Fairfax County, Virginia, United States.
+3 DEBUG: NER tags for subject: [('George', 'NNP', 'B-PERSON'), ('Mason', 'NNP', 'B-PERSON'), ('University', 'NNP', 'I-PERSON')]
+3 DEBUG: Extracted location: fairfax county, virginia, united states.
+3 A) George Mason University is located in fairfax county, virginia, united states..
+
+4 Q) What is the George Mason University?
+4 DEBUG: Parsed question - qtype: what, subject: the George Mason University, keyword: None
+4 DEBUG: Initiating Wikipedia search for subject: the George Mason University
+4 DEBUG: Raw Wikipedia summary: George Mason University (GMU) is a public research university in Fairfax County, Virginia, United States.
+4 DEBUG: NER tags for subject: [('the', 'DT', 'O'), ('George', 'NNP', 'B-PERSON'), ('Mason', 'NNP', 'I-PERSON'), ('University', 'NNP', 'I-PERSON')]
+4 A) George Mason University (GMU) is a public research university in Fairfax County, Virginia, United States.
+
+5 Q) Where is the Statue of Liberty?
+5 DEBUG: Parsed question - qtype: where, subject: the Statue of Liberty, keyword: None
+5 DEBUG: Initiating Wikipedia search for subject: the Statue of Liberty
+5 DEBUG: Raw Wikipedia summary: The Statue of Liberty (Liberty Enlightening the World; French: La Liberté éclairant le monde) is a colossal neoclassical sculpture on Liberty Island in New York Harbor, within New York City.
+5 DEBUG: NER tags for subject: [('the', 'DT', 'O'), ('Statue', 'NNP', 'O'), ('of', 'IN', 'O'), ('Liberty', 'NNP', 'B-GPE')]
+5 DEBUG: Extracted location: liberty island in new york harbor, within new york city.
+5 A) the Statue of Liberty is located in liberty island in new york harbor, within new york city..
+
+6 Q) Who is Thomas Jefferson?
+6 DEBUG: Parsed question - qtype: who, subject: Thomas Jefferson, keyword: None
+6 DEBUG: Initiating Wikipedia search for subject: Thomas Jefferson
+6 DEBUG: Raw Wikipedia summary: Thomas Jefferson (April 13 [O.S. April 2], 1743 – July 4, 1826) was an American Founding Father who served as the third president of the United States from 1801 to 1809.
+6 DEBUG: NER tags for subject: [('Thomas', 'NNP', 'B-PERSON'), ('Jefferson', 'NNP', 'B-PERSON')]
+6 A) Thomas Jefferson (April 13 [O.S. April 2], 1743 – July 4, 1826) was an American Founding Father who served as the third president of the United States from 1801 to 1809.
+
+7 Q) When was Thomas Jefferson born?
+7 DEBUG: Parsed question - qtype: when, subject: Thomas Jefferson, keyword: born
+7 DEBUG: Initiating Wikipedia search for subject: Thomas Jefferson
+7 DEBUG: Raw Wikipedia summary: Thomas Jefferson (April 13 [O.S. April 2], 1743 – July 4, 1826) was an American Founding Father who served as the third president of the United States from 1801 to 1809.
+7 DEBUG: NER tags for subject: [('Thomas', 'NNP', 'B-PERSON'), ('Jefferson', 'NNP', 'B-PERSON')]
+7 DEBUG: Extracted date: July 4, 1826
+7 A) Thomas Jefferson was born on July 4, 1826.
+
+8 Q) When was Donald Trump born?
+8 DEBUG: Parsed question - qtype: when, subject: Donald Trump, keyword: born
+8 DEBUG: Initiating Wikipedia search for subject: Donald Trump
+8 DEBUG: Raw Wikipedia summary: Donald John Trump (born June 14, 1946) is an American politician, media personality, and businessman who is the 47th president of the United States.
+8 DEBUG: NER tags for subject: [('Donald', 'NNP', 'B-PERSON'), ('Trump', 'NNP', 'B-ORGANIZATION')]
+8 DEBUG: Extracted date: June 14, 1946
+8 A) Donald Trump was born on June 14, 1946.
+
+9 Q) Who is Donald Trump?
+9 DEBUG: Parsed question - qtype: who, subject: Donald Trump, keyword: None
+9 DEBUG: Initiating Wikipedia search for subject: Donald Trump
+9 DEBUG: Raw Wikipedia summary: Donald John Trump (born June 14, 1946) is an American politician, media personality, and businessman who is the 47th president of the United States.
+9 DEBUG: NER tags for subject: [('Donald', 'NNP', 'B-PERSON'), ('Trump', 'NNP', 'B-ORGANIZATION')]
+9 A) Donald John Trump (born June 14, 1946) is an American politician, media personality, and businessman who is the 47th president of the United States.
+
+10 Q) Who is Barack Obama?
+10 DEBUG: Parsed question - qtype: who, subject: Barack Obama, keyword: None
+10 DEBUG: Initiating Wikipedia search for subject: Barack Obama
+10 DEBUG: Raw Wikipedia summary: Barack Hussein Obama II (born August 4, 1961) is an American politician who was the 44th president of the United States from 2009 to 2017.
+10 DEBUG: NER tags for subject: [('Barack', 'NNP', 'B-PERSON'), ('Obama', 'NNP', 'B-ORGANIZATION')]
+10 A) Barack Hussein Obama II (born August 4, 1961) is an American politician who was the 44th president of the United States from 2009 to 2017.
+
+11 Q) What is a black hole?
+11 DEBUG: Parsed question - qtype: what, subject: a black hole, keyword: None
+11 DEBUG: Initiating Wikipedia search for subject: a black hole
+11 DEBUG: Raw Wikipedia summary: A black hole is a massive, compact astronomical object so dense that its gravity prevents anything from escaping, even light.
+11 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('black', 'JJ', 'O'), ('hole', 'NN', 'O')]
+11 A) A black hole is a massive, compact astronomical object so dense that its gravity prevents anything from escaping, even light.
+
+12 Q) What is Gold?
+12 DEBUG: Parsed question - qtype: what, subject: Gold, keyword: None
+12 DEBUG: Initiating Wikipedia search for subject: Gold
+12 DEBUG: Raw Wikipedia summary: 
+12 DEBUG: NER tags for subject: [('Gold', 'NN', 'B-GPE')]
+12 A) I am sorry, I don't know the answer.
+
+13 Q) What is a gold?
+13 DEBUG: Parsed question - qtype: what, subject: a gold, keyword: None
+13 DEBUG: Initiating Wikipedia search for subject: a gold
+13 DEBUG: Raw Wikipedia summary: Gold is a chemical element with the chemical symbol Au (from Latin aurum) and atomic number 79.
+13 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('gold', 'NN', 'O')]
+13 A) Gold is a chemical element with the chemical symbol Au (from Latin aurum) and atomic number 79.
+
+14 Q) What is gold?
+14 DEBUG: Parsed question - qtype: what, subject: gold, keyword: None
+14 DEBUG: Initiating Wikipedia search for subject: gold
+14 DEBUG: Raw Wikipedia summary: 
+14 DEBUG: NER tags for subject: [('gold', 'NN', 'O')]
+14 A) I am sorry, I don't know the answer.
+
+15 Q) What is a gold?
+15 DEBUG: Parsed question - qtype: what, subject: a gold, keyword: None
+15 DEBUG: Initiating Wikipedia search for subject: a gold
+15 DEBUG: Raw Wikipedia summary: Gold is a chemical element with the chemical symbol Au (from Latin aurum) and atomic number 79.
+15 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('gold', 'NN', 'O')]
+15 A) Gold is a chemical element with the chemical symbol Au (from Latin aurum) and atomic number 79.
+
+16 Q) What is a fork?
+16 DEBUG: Parsed question - qtype: what, subject: a fork, keyword: None
+16 DEBUG: Initiating Wikipedia search for subject: a fork
+16 DEBUG: Raw Wikipedia summary: In cutlery or kitchenware, a fork (from Latin: furca 'pitchfork') is a utensil, now usually made of metal, whose long handle terminates in a head that branches into several narrow and often slightly curved tines with which one can spear foods either to hold them to cut with a knife or to lift them to the mouth.
+16 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('fork', 'NN', 'O')]
+16 A) In cutlery or kitchenware, a fork (from Latin: furca 'pitchfork') is a utensil, now usually made of metal, whose long handle terminates in a head that branches into several narrow and often slightly curved tines with which one can spear foods either to hold them to cut with a knife or to lift them to the mouth.
+
+17 Q) What is a dog?
+17 DEBUG: Parsed question - qtype: what, subject: a dog, keyword: None
+17 DEBUG: Initiating Wikipedia search for subject: a dog
+17 DEBUG: Raw Wikipedia summary: 
+17 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('dog', 'NN', 'O')]
+17 A) I am sorry, I don't know the answer.
+
+18 Q) What is dog?
+18 DEBUG: Parsed question - qtype: what, subject: dog, keyword: None
+18 DEBUG: Initiating Wikipedia search for subject: dog
+18 DEBUG: Raw Wikipedia summary: 
+18 DEBUG: NER tags for subject: [('dog', 'NN', 'O')]
+18 A) I am sorry, I don't know the answer.
+
+19 Q) What is the dog?
+19 DEBUG: Parsed question - qtype: what, subject: the dog, keyword: None
+19 DEBUG: Initiating Wikipedia search for subject: the dog
+19 DEBUG: Raw Wikipedia summary: 
+19 DEBUG: NER tags for subject: [('the', 'DT', 'O'), ('dog', 'NN', 'O')]
+19 A) I am sorry, I don't know the answer.
+
+20 Q) What is a cat?
+20 DEBUG: Parsed question - qtype: what, subject: a cat, keyword: None
+20 DEBUG: Initiating Wikipedia search for subject: a cat
+20 DEBUG: Raw Wikipedia summary: The cat (Felis catus), also referred to as the domestic cat or house cat, is a small domesticated carnivorous mammal.
+20 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('cat', 'NN', 'O')]
+20 A) The cat (Felis catus), also referred to as the domestic cat or house cat, is a small domesticated carnivorous mammal.
+
+21 Q) What is Dog?
+21 DEBUG: Parsed question - qtype: what, subject: Dog, keyword: None
+21 DEBUG: Initiating Wikipedia search for subject: Dog
+21 DEBUG: Raw Wikipedia summary: 
+21 DEBUG: NER tags for subject: [('Dog', 'NN', 'B-GPE')]
+21 A) I am sorry, I don't know the answer.
+
+22 Q) What is Canine?
+22 DEBUG: Parsed question - qtype: what, subject: Canine, keyword: None
+22 DEBUG: Initiating Wikipedia search for subject: Canine
+22 DEBUG: Raw Wikipedia summary: 
+22 DEBUG: NER tags for subject: [('Canine', 'NN', 'B-GPE')]
+22 A) I am sorry, I don't know the answer.
+
+23 Q) What is a canine?
+23 DEBUG: Parsed question - qtype: what, subject: a canine, keyword: None
+23 DEBUG: Initiating Wikipedia search for subject: a canine
+23 DEBUG: Raw Wikipedia summary: 
+23 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('canine', 'NN', 'O')]
+23 A) I am sorry, I don't know the answer.
+
+24 Q) What is India?
+24 DEBUG: Parsed question - qtype: what, subject: India, keyword: None
+24 DEBUG: Initiating Wikipedia search for subject: India
+24 DEBUG: Raw Wikipedia summary: 
+24 DEBUG: NER tags for subject: [('India', 'NNP', 'B-GPE')]
+24 A) I am sorry, I don't know the answer.
+
+25 Q) What is the India?
+25 DEBUG: Parsed question - qtype: what, subject: the India, keyword: None
+25 DEBUG: Initiating Wikipedia search for subject: the India
+25 DEBUG: Raw Wikipedia summary: India, officially the Republic of India, is a country in South Asia.
+25 DEBUG: NER tags for subject: [('the', 'DT', 'O'), ('India', 'NNP', 'B-GPE')]
+25 A) India, officially the Republic of India, is a country in South Asia.
+
+26 Q) What is the Republic of India?
+26 DEBUG: Parsed question - qtype: what, subject: the Republic of India, keyword: None
+26 DEBUG: Initiating Wikipedia search for subject: the Republic of India
+26 DEBUG: Raw Wikipedia summary: India, officially the Republic of India, is a country in South Asia.
+26 DEBUG: NER tags for subject: [('the', 'DT', 'O'), ('Republic', 'NNP', 'B-ORGANIZATION'), ('of', 'IN', 'O'), ('India', 'NNP', 'B-GPE')]
+26 A) India, officially the Republic of India, is a country in South Asia.
+
+27 Q) What is the United States?
+27 DEBUG: Parsed question - qtype: what, subject: the United States, keyword: None
+27 DEBUG: Initiating Wikipedia search for subject: the United States
+27 DEBUG: Raw Wikipedia summary: The United States of America (USA), commonly known as the United States (U.S.) or America, is a country primarily located in the continent of North America.
+27 DEBUG: NER tags for subject: [('the', 'DT', 'O'), ('United', 'NNP', 'B-GPE'), ('States', 'NNPS', 'I-GPE')]
+27 A) The United States of America (USA), commonly known as the United States (U.S.) or America, is a country primarily located in the continent of North America.
+
+28 Q) What is the European Union?
+28 DEBUG: Parsed question - qtype: what, subject: the European Union, keyword: None
+28 DEBUG: Initiating Wikipedia search for subject: the European Union
+28 DEBUG: Raw Wikipedia summary: The European Union (EU) is a supranational political and economic union of 27 member states that are located primarily in Europe.
+28 DEBUG: NER tags for subject: [('the', 'DT', 'O'), ('European', 'NNP', 'B-ORGANIZATION'), ('Union', 'NNP', 'I-ORGANIZATION')]
+28 A) The European Union (EU) is a supranational political and economic union of 27 member states that are located primarily in Europe.
+
+29 Q) What is the World War 2?
+29 DEBUG: Parsed question - qtype: what, subject: the World War 2, keyword: None
+29 DEBUG: Initiating Wikipedia search for subject: the World War 2
+29 DEBUG: Raw Wikipedia summary: 
+29 DEBUG: NER tags for subject: [('the', 'DT', 'O'), ('World', 'NNP', 'O'), ('War', 'NNP', 'O'), ('2', 'CD', 'O')]
+29 A) I am sorry, I don't know the answer.
+
+30 Q) What is the World War?
+30 DEBUG: Parsed question - qtype: what, subject: the World War, keyword: None
+30 DEBUG: Initiating Wikipedia search for subject: the World War
+30 DEBUG: Raw Wikipedia summary: World War I or the First World War (28 July 1914 – 11 November 1918), also known as the Great War, was a global conflict between two coalitions: the Allies (or Entente) and the Central Powers.
+30 DEBUG: NER tags for subject: [('the', 'DT', 'O'), ('World', 'NNP', 'O'), ('War', 'NNP', 'O')]
+30 A) World War I or the First World War (28 July 1914 – 11 November 1918), also known as the Great War, was a global conflict between two coalitions: the Allies (or Entente) and the Central Powers.
+
+31 Q) What is the World War II?
+31 DEBUG: Parsed question - qtype: what, subject: the World War II, keyword: None
+31 DEBUG: Initiating Wikipedia search for subject: the World War II
+31 DEBUG: Raw Wikipedia summary: World War II or the Second World War (1 September 1939 – 2 September 1945) was a global conflict between two coalitions: the Allies and the Axis powers.
+31 DEBUG: NER tags for subject: [('the', 'DT', 'O'), ('World', 'NNP', 'O'), ('War', 'NNP', 'O'), ('II', 'NNP', 'O')]
+31 A) World War II or the Second World War (1 September 1939 – 2 September 1945) was a global conflict between two coalitions: the Allies and the Axis powers.
+
+32 Q) Where is the Eiffel Tower?
+32 DEBUG: Parsed question - qtype: where, subject: the Eiffel Tower, keyword: None
+32 DEBUG: Initiating Wikipedia search for subject: the Eiffel Tower
+32 DEBUG: Raw Wikipedia summary: The Eiffel Tower (  EYE-fəl; French: Tour Eiffel [tuʁ ɛfɛl] ) is a wrought-iron lattice tower on the Champ de Mars in Paris, France.
+32 DEBUG: NER tags for subject: [('the', 'DT', 'O'), ('Eiffel', 'NNP', 'B-ORGANIZATION'), ('Tower', 'NNP', 'I-ORGANIZATION')]
+32 DEBUG: Extracted location: the champ de mars in paris, france.
+32 A) the Eiffel Tower is located in the champ de mars in paris, france..
+
+33 Q) Where is the Taj Mahal?
+33 DEBUG: Parsed question - qtype: where, subject: the Taj Mahal, keyword: None
+33 DEBUG: Initiating Wikipedia search for subject: the Taj Mahal
+33 DEBUG: Raw Wikipedia summary: The Taj Mahal ( TAHJ mə-HAHL, TAHZH -⁠; Hindi: [taːdʒ ˈmɛɦ(ɛ)l]; lit. 'Crown of the Palace') is an ivory-white marble mausoleum on the right bank of the river Yamuna in Agra, Uttar Pradesh, India.
+33 DEBUG: NER tags for subject: [('the', 'DT', 'O'), ('Taj', 'NNP', 'B-ORGANIZATION'), ('Mahal', 'NNP', 'I-ORGANIZATION')]
+33 DEBUG: Extracted location: the right bank of the river yamuna in agra, uttar pradesh, india.
+33 A) the Taj Mahal is located in the right bank of the river yamuna in agra, uttar pradesh, india..
+
+34 Q) Where is the George Mason University?
+34 DEBUG: Parsed question - qtype: where, subject: the George Mason University, keyword: None
+34 DEBUG: Initiating Wikipedia search for subject: the George Mason University
+34 DEBUG: Raw Wikipedia summary: George Mason University (GMU) is a public research university in Fairfax County, Virginia, United States.
+34 DEBUG: NER tags for subject: [('the', 'DT', 'O'), ('George', 'NNP', 'B-PERSON'), ('Mason', 'NNP', 'I-PERSON'), ('University', 'NNP', 'I-PERSON')]
+34 DEBUG: Extracted location: fairfax county, virginia, united states.
+34 A) the George Mason University is located in fairfax county, virginia, united states..
+
+35 Q) Where is the your mom?
+35 DEBUG: Parsed question - qtype: where, subject: the your mom, keyword: None
+35 DEBUG: Initiating Wikipedia search for subject: the your mom
+35 DEBUG: Raw Wikipedia summary: A "yo mama" joke or your mom joke is a form of humor involving a verbal disparaging of one's mother.
+35 DEBUG: NER tags for subject: [('the', 'DT', 'O'), ('your', 'PRP$', 'O'), ('mom', 'NN', 'O')]
+35 DEBUG: Extracted location: 
+35 A) I am sorry, I don't know the answer.
+
+36 Q) Where was Einstein born?
+36 DEBUG: Parsed question - qtype: where, subject: Einstein, keyword: born
+36 DEBUG: Initiating Wikipedia search for subject: Einstein
+36 DEBUG: Raw Wikipedia summary: Albert Einstein (14 March 1879 – 18 April 1955) was a German-born theoretical physicist who is best known for developing the theory of relativity.
+36 DEBUG: NER tags for subject: [('Einstein', 'NN', 'B-GPE')]
+36 DEBUG: Extracted location: 
+36 A) I am sorry, I don't know the answer.
+
+37 Q) Where was Albern Einstein born?
+37 DEBUG: Parsed question - qtype: where, subject: Albern Einstein, keyword: born
+37 DEBUG: Initiating Wikipedia search for subject: Albern Einstein
+37 DEBUG: Raw Wikipedia summary: Albert Einstein (14 March 1879 – 18 April 1955) was a German-born theoretical physicist who is best known for developing the theory of relativity.
+37 DEBUG: NER tags for subject: [('Albern', 'NNP', 'B-PERSON'), ('Einstein', 'NNP', 'B-ORGANIZATION')]
+37 DEBUG: Extracted location: 
+37 A) I am sorry, I don't know the answer.
+
+38 Q) Where was Albert Einstein born?
+38 DEBUG: Parsed question - qtype: where, subject: Albert Einstein, keyword: born
+38 DEBUG: Initiating Wikipedia search for subject: Albert Einstein
+38 DEBUG: Raw Wikipedia summary: Albert Einstein (14 March 1879 – 18 April 1955) was a German-born theoretical physicist who is best known for developing the theory of relativity.
+38 DEBUG: NER tags for subject: [('Albert', 'NNP', 'B-PERSON'), ('Einstein', 'NNP', 'B-ORGANIZATION')]
+38 DEBUG: Extracted location: 
+38 A) I am sorry, I don't know the answer.
+
+39 Q) Who is Albert Einstein?
+39 DEBUG: Parsed question - qtype: who, subject: Albert Einstein, keyword: None
+39 DEBUG: Initiating Wikipedia search for subject: Albert Einstein
+39 DEBUG: Raw Wikipedia summary: Albert Einstein (14 March 1879 – 18 April 1955) was a German-born theoretical physicist who is best known for developing the theory of relativity.
+39 DEBUG: NER tags for subject: [('Albert', 'NNP', 'B-PERSON'), ('Einstein', 'NNP', 'B-ORGANIZATION')]
+39 A) Albert Einstein (14 March 1879 – 18 April 1955) was a German-born theoretical physicist who is best known for developing the theory of relativity.
+
+40 Q) When was Einstein born?
+40 DEBUG: Parsed question - qtype: when, subject: Einstein, keyword: born
+40 DEBUG: Initiating Wikipedia search for subject: Einstein
+40 DEBUG: Raw Wikipedia summary: Albert Einstein (14 March 1879 – 18 April 1955) was a German-born theoretical physicist who is best known for developing the theory of relativity.
+40 DEBUG: NER tags for subject: [('Einstein', 'NN', 'B-GPE')]
+40 DEBUG: Extracted date: 14 March 1879
+40 A) Einstein was born on 14 March 1879.
+
+41 Q) What is India?
+41 DEBUG: Parsed question - qtype: what, subject: India, keyword: None
+41 DEBUG: Initiating Wikipedia search for subject: India
+41 DEBUG: Raw Wikipedia summary: 
+41 DEBUG: NER tags for subject: [('India', 'NNP', 'B-GPE')]
+41 A) I am sorry, I don't know the answer.
+
+42 Q) What is the India?
+42 DEBUG: Parsed question - qtype: what, subject: the India, keyword: None
+42 DEBUG: Initiating Wikipedia search for subject: the India
+42 DEBUG: Raw Wikipedia summary: India, officially the Republic of India, is a country in South Asia.
+42 DEBUG: NER tags for subject: [('the', 'DT', 'O'), ('India', 'NNP', 'B-GPE')]
+42 A) India, officially the Republic of India, is a country in South Asia.
+
+43 Q) What is ROI?
+43 DEBUG: Parsed question - qtype: what, subject: ROI, keyword: None
+43 DEBUG: Initiating Wikipedia search for subject: ROI
+43 DEBUG: Raw Wikipedia summary: Roy or Roi is a masculine given name and a family surname with varied origins.
+43 DEBUG: NER tags for subject: [('ROI', 'NN', 'B-ORGANIZATION')]
+43 A) Roy or Roi is a masculine given name and a family surname with varied origins.
+
+44 Q) What is a name?
+44 DEBUG: Parsed question - qtype: what, subject: a name, keyword: None
+44 DEBUG: Initiating Wikipedia search for subject: a name
+44 DEBUG: Raw Wikipedia summary: A name is a term used for identification by an external observer.
+44 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('name', 'NN', 'O')]
+44 A) A name is a term used for identification by an external observer.
+
+45 Q) What is Natural Language Processing?
+45 DEBUG: Parsed question - qtype: what, subject: Natural Language Processing, keyword: None
+45 DEBUG: Initiating Wikipedia search for subject: Natural Language Processing
+45 DEBUG: Raw Wikipedia summary: Natural language processing (NLP) is a subfield of computer science and especially artificial intelligence.
+45 DEBUG: NER tags for subject: [('Natural', 'JJ', 'O'), ('Language', 'NNP', 'O'), ('Processing', 'NN', 'O')]
+45 A) Natural language processing (NLP) is a subfield of computer science and especially artificial intelligence.
+
+46 Q) What are LLM?
+46 DEBUG: Parsed question - qtype: None, subject: What are LLM?, keyword: None
+46 DEBUG: Initiating Wikipedia search for subject: What are LLM?
+46 DEBUG: Raw Wikipedia summary: A large language model (LLM) is a type of machine learning model designed for natural language processing tasks such as language generation.
+46 DEBUG: NER tags for subject: [('What', 'WP', 'O'), ('are', 'VBP', 'O'), ('LLM', 'NNP', 'B-ORGANIZATION'), ('?', '.', 'O')]
+46 A) I am sorry, I don't know the answer.
+
+47 Q) What is AI?
+47 DEBUG: Parsed question - qtype: what, subject: AI, keyword: None
+47 DEBUG: Initiating Wikipedia search for subject: AI
+47 DEBUG: Raw Wikipedia summary: The atmosphere of Earth is composed of a layer of gas mixture that surrounds the Earth's planetary surface (both lands and oceans), known collectively as air, with variable quantities of suspended aerosols and particulates (which create weather features such as clouds and hazes), all retained by Earth's gravity.
+47 DEBUG: NER tags for subject: [('AI', 'NN', 'O')]
+47 A) The atmosphere of Earth is composed of a layer of gas mixture that surrounds the Earth's planetary surface (both lands and oceans), known collectively as air, with variable quantities of suspended aerosols and particulates (which create weather features such as clouds and hazes), all retained by Earth's gravity.
+
+48 Q) How does a gun work?
+48 DEBUG: Parsed question - qtype: None, subject: How does a gun work?, keyword: None
+48 DEBUG: Initiating Wikipedia search for subject: How does a gun work?
+48 DEBUG: Raw Wikipedia summary: Deep Throat is a 1972 American pornographic film written and directed by Gerard Damiano, listed in the credits as "Jerry Gerard", and starring Linda Lovelace (Linda Susan Boreman).
+48 DEBUG: NER tags for subject: [('How', 'WRB', 'O'), ('does', 'VBZ', 'O'), ('a', 'DT', 'O'), ('gun', 'NN', 'O'), ('work', 'NN', 'O'), ('?', '.', 'O')]
+48 A) I am sorry, I don't know the answer.
+
+49 Q) What is a gun?
+49 DEBUG: Parsed question - qtype: what, subject: a gun, keyword: None
+49 DEBUG: Initiating Wikipedia search for subject: a gun
+49 DEBUG: Raw Wikipedia summary: A gun is a device designed to propel a projectile using pressure or explosive force.
+49 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('gun', 'NN', 'O')]
+49 A) A gun is a device designed to propel a projectile using pressure or explosive force.
+
+User exited the program.
+--- Log ended at 2025-03-26 15:13:03 ---
+--- Log started at 2025-03-26 15:13:46 ---
+
+1 Q) Hello
+1 DEBUG: Parsed question - qtype: None, subject: Hello, keyword: None
+1 DEBUG: Initiating Wikipedia search for subject: Hello
+1 DEBUG: Raw Wikipedia summary: In religion and folklore, hell is a location or state in the afterlife in which souls are subjected to punitive punishment after death.
+1 DEBUG: NER tags for subject: [('Hello', 'NN', 'B-GPE')]
+1 A) I am sorry, I don't know the answer.
+
+2 Q) Where is Malosky Stadium?
+2 DEBUG: Parsed question - qtype: where, subject: Malosky Stadium, keyword: None
+2 DEBUG: Initiating Wikipedia search for subject: Malosky Stadium
+2 DEBUG: Raw Wikipedia summary: The Minnesota Duluth Bulldogs are the athletic teams that represent the University of Minnesota Duluth.
+2 DEBUG: NER tags for subject: [('Malosky', 'NNP', 'B-GPE'), ('Stadium', 'NN', 'O')]
+2 DEBUG: Extracted location: 
+2 A) I am sorry, I don't know the answer.
+
+3 Q) Where is Wankhade Stadium?
+3 DEBUG: Parsed question - qtype: where, subject: Wankhade Stadium, keyword: None
+3 DEBUG: Initiating Wikipedia search for subject: Wankhade Stadium
+3 DEBUG: Raw Wikipedia summary: Wankhede Stadium (pronounced [ʋaːnkʰeɖe]) is an international cricket stadium in Mumbai, India.
+3 DEBUG: NER tags for subject: [('Wankhade', 'NNP', 'B-GPE'), ('Stadium', 'NN', 'O')]
+3 DEBUG: Extracted location: mumbai, india.
+3 A) Wankhade Stadium is located in mumbai, india..
+
+--- Log ended at 2025-03-26 19:15:49 ---

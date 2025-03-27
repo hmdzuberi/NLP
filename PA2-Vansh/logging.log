@@ -246,14 +246,6 @@
 34 DEBUG: Extracted location: fairfax county, virginia, united states.
 34 A) the George Mason University is located in fairfax county, virginia, united states..
 
-35 Q) Where is the your mom?
-35 DEBUG: Parsed question - qtype: where, subject: the your mom, keyword: None
-35 DEBUG: Initiating Wikipedia search for subject: the your mom
-35 DEBUG: Raw Wikipedia summary: A "yo mama" joke or your mom joke is a form of humor involving a verbal disparaging of one's mother.
-35 DEBUG: NER tags for subject: [('the', 'DT', 'O'), ('your', 'PRP$', 'O'), ('mom', 'NN', 'O')]
-35 DEBUG: Extracted location: 
-35 A) I am sorry, I don't know the answer.
-
 36 Q) Where was Einstein born?
 36 DEBUG: Parsed question - qtype: where, subject: Einstein, keyword: born
 36 DEBUG: Initiating Wikipedia search for subject: Einstein
@@ -384,3 +376,460 @@ User exited the program.
 3 A) Wankhade Stadium is located in mumbai, india..
 
 --- Log ended at 2025-03-26 19:15:49 ---
+--- Log started at 2025-03-26 19:33:21 ---
+
+1 Q) Where was Gandhi born?
+1 DEBUG: Parsed question - qtype: where, subject: Gandhi, keyword: born
+1 DEBUG: Initiating Wikipedia search for subject: Gandhi
+1 DEBUG: Raw Wikipedia summary: Mohandas Karamchand Gandhi (2 October 1869 – 30 January 1948) was an Indian lawyer, anti-colonial nationalist, and political ethicist who employed nonviolent resistance to lead the successful campaign for India's independence from British rule.
+1 DEBUG: NER tags for subject: [('Gandhi', 'NNP', 'B-GPE')]
+1 DEBUG: Extracted location: lead the successful campaign for india's independence from british rule.
+1 A) Gandhi is located in lead the successful campaign for india's independence from british rule..
+
+2 Q) When was Gandhi born?
+2 DEBUG: Parsed question - qtype: when, subject: Gandhi, keyword: born
+2 DEBUG: Initiating Wikipedia search for subject: Gandhi
+2 DEBUG: Raw Wikipedia summary: Mohandas Karamchand Gandhi (2 October 1869 – 30 January 1948) was an Indian lawyer, anti-colonial nationalist, and political ethicist who employed nonviolent resistance to lead the successful campaign for India's independence from British rule.
+2 DEBUG: NER tags for subject: [('Gandhi', 'NNP', 'B-GPE')]
+2 DEBUG: Extracted date: 30 January 1948
+2 A) Gandhi was born on 30 January 1948.
+
+3 Q) When does India celebrate it's Independence Day?
+3 DEBUG: Parsed question - qtype: None, subject: When does India celebrate it's Independence Day?, keyword: None
+3 DEBUG: Initiating Wikipedia search for subject: When does India celebrate it's Independence Day?
+3 DEBUG: Raw Wikipedia summary: 
+3 DEBUG: NER tags for subject: [('When', 'WRB', 'O'), ('does', 'VBZ', 'O'), ('India', 'NNP', 'B-GPE'), ('celebrate', 'VB', 'O'), ('it', 'PRP', 'O'), ("'s", 'VBZ', 'O'), ('Independence', 'NNP', 'B-GPE'), ('Day', 'NNP', 'O'), ('?', '.', 'O')]
+3 A) I am sorry, I don't know the answer.
+
+4 Q) Where was Gandhi born?
+4 DEBUG: Parsed question - qtype: where, subject: Gandhi, keyword: born
+4 DEBUG: Initiating Wikipedia search for subject: Gandhi
+4 DEBUG: Raw Wikipedia summary: Mohandas Karamchand Gandhi (2 October 1869 – 30 January 1948) was an Indian lawyer, anti-colonial nationalist, and political ethicist who employed nonviolent resistance to lead the successful campaign for India's independence from British rule.
+4 DEBUG: NER tags for subject: [('Gandhi', 'NNP', 'B-GPE')]
+4 DEBUG: Extracted location: lead the successful campaign for india's independence from british rule.
+4 A) Gandhi is located in lead the successful campaign for india's independence from british rule..
+
+5 Q) Who was Gandhi?
+5 DEBUG: Parsed question - qtype: who, subject: Gandhi, keyword: None
+5 DEBUG: Initiating Wikipedia search for subject: Gandhi
+5 DEBUG: Raw Wikipedia summary: Mohandas Karamchand Gandhi (2 October 1869 – 30 January 1948) was an Indian lawyer, anti-colonial nationalist, and political ethicist who employed nonviolent resistance to lead the successful campaign for India's independence from British rule.
+5 DEBUG: NER tags for subject: [('Gandhi', 'NNP', 'B-GPE')]
+5 A) Mohandas Karamchand Gandhi (2 October 1869 – 30 January 1948) was an Indian lawyer, anti-colonial nationalist, and political ethicist who employed nonviolent resistance to lead the successful campaign for India's independence from British rule.
+
+6 Q) When was Michael Jackson born?
+6 DEBUG: Parsed question - qtype: when, subject: Michael Jackson, keyword: born
+6 DEBUG: Initiating Wikipedia search for subject: Michael Jackson
+6 DEBUG: Raw Wikipedia summary: 
+6 DEBUG: NER tags for subject: [('Michael', 'NNP', 'B-PERSON'), ('Jackson', 'NNP', 'B-PERSON')]
+6 DEBUG: Extracted date: 
+6 A) I am sorry, I don't know the answer.
+
+7 Q) Who was Michael Jackson?
+7 DEBUG: Parsed question - qtype: who, subject: Michael Jackson, keyword: None
+7 DEBUG: Initiating Wikipedia search for subject: Michael Jackson
+7 DEBUG: Raw Wikipedia summary: 
+7 DEBUG: NER tags for subject: [('Michael', 'NNP', 'B-PERSON'), ('Jackson', 'NNP', 'B-PERSON')]
+7 A) I am sorry, I don't know the answer.
+
+8 Q) Who is MJ?
+8 DEBUG: Parsed question - qtype: who, subject: MJ, keyword: None
+8 DEBUG: Initiating Wikipedia search for subject: MJ
+8 DEBUG: Raw Wikipedia summary: M, or m, is the thirteenth letter of the Latin alphabet, used in the modern English alphabet, the alphabets of several western European languages and others worldwide.
+8 DEBUG: NER tags for subject: [('MJ', 'NN', 'O')]
+8 A) M, or m, is the thirteenth letter of the Latin alphabet, used in the modern English alphabet, the alphabets of several western European languages and others worldwide.
+
+9 Q) When was Nehru born?
+9 DEBUG: Parsed question - qtype: when, subject: Nehru, keyword: born
+9 DEBUG: Initiating Wikipedia search for subject: Nehru
+9 DEBUG: Raw Wikipedia summary: Jawaharlal Nehru (14 November 1889 – 27 May 1964) was an Indian anti-colonial nationalist, secular humanist, social democrat, and statesman who was a central figure in India during the middle of the 20th century.
+9 DEBUG: NER tags for subject: [('Nehru', 'NN', 'B-GPE')]
+9 DEBUG: Extracted date: 14 November 1889
+9 A) Nehru was born on 14 November 1889.
+
+10 Q) When did Nehru die?
+10 DEBUG: Parsed question - qtype: None, subject: When did Nehru die?, keyword: None
+10 DEBUG: Initiating Wikipedia search for subject: When did Nehru die?
+10 DEBUG: Raw Wikipedia summary: Jawaharlal Nehru (14 November 1889 – 27 May 1964) was an Indian anti-colonial nationalist, secular humanist, social democrat, and statesman who was a central figure in India during the middle of the 20th century.
+10 DEBUG: NER tags for subject: [('When', 'WRB', 'O'), ('did', 'VBD', 'O'), ('Nehru', 'NNP', 'B-PERSON'), ('die', 'NN', 'O'), ('?', '.', 'O')]
+10 A) I am sorry, I don't know the answer.
+
+11 Q) When was Akbar born?
+11 DEBUG: Parsed question - qtype: when, subject: Akbar, keyword: born
+11 DEBUG: Initiating Wikipedia search for subject: Akbar
+11 DEBUG: Raw Wikipedia summary: 
+11 DEBUG: NER tags for subject: [('Akbar', 'NN', 'B-GPE')]
+11 DEBUG: Extracted date: 
+11 A) I am sorry, I don't know the answer.
+
+12 Q) Who is Akbar?
+12 DEBUG: Parsed question - qtype: who, subject: Akbar, keyword: None
+12 DEBUG: Initiating Wikipedia search for subject: Akbar
+12 DEBUG: Raw Wikipedia summary: 
+12 DEBUG: NER tags for subject: [('Akbar', 'NN', 'B-GPE')]
+12 A) I am sorry, I don't know the answer.
+
+13 Q) Who are the Mughals?
+13 DEBUG: Parsed question - qtype: None, subject: Who are the Mughals?, keyword: None
+13 DEBUG: Initiating Wikipedia search for subject: Who are the Mughals?
+13 DEBUG: Raw Wikipedia summary: The emperors of the Mughal Empire, who were all members of the Timurid dynasty (House of Babur), ruled the empire from its inception on 21 April 1526 to its dissolution in late 1857.
+13 DEBUG: NER tags for subject: [('Who', 'WP', 'O'), ('are', 'VBP', 'O'), ('the', 'DT', 'O'), ('Mughals', 'NNS', 'O'), ('?', '.', 'O')]
+13 A) I am sorry, I don't know the answer.
+
+14 Q) Where was Gandhi born?
+14 DEBUG: Parsed question - qtype: where, subject: Gandhi, keyword: born
+14 DEBUG: Initiating Wikipedia search for subject: Gandhi
+14 DEBUG: Raw Wikipedia summary: Mohandas Karamchand Gandhi (2 October 1869 – 30 January 1948) was an Indian lawyer, anti-colonial nationalist, and political ethicist who employed nonviolent resistance to lead the successful campaign for India's independence from British rule.
+14 DEBUG: NER tags for subject: [('Gandhi', 'NNP', 'B-GPE')]
+14 DEBUG: Extracted location: lead the successful campaign for india's independence from british rule.
+14 A) Gandhi is located in lead the successful campaign for india's independence from british rule..
+
+15 Q) Where was Thomas Jefferson born?
+15 DEBUG: Parsed question - qtype: where, subject: Thomas Jefferson, keyword: born
+15 DEBUG: Initiating Wikipedia search for subject: Thomas Jefferson
+15 DEBUG: Raw Wikipedia summary: Thomas Jefferson (April 13 [O.S. April 2], 1743 – July 4, 1826) was an American Founding Father who served as the third president of the United States from 1801 to 1809.
+15 DEBUG: NER tags for subject: [('Thomas', 'NNP', 'B-PERSON'), ('Jefferson', 'NNP', 'B-PERSON')]
+15 DEBUG: Extracted location: 1801 to 1809.
+15 A) Thomas Jefferson is located in 1801 to 1809..
+
+16 Q) Who is Gold?
+16 DEBUG: Parsed question - qtype: who, subject: Gold, keyword: None
+16 DEBUG: Initiating Wikipedia search for subject: Gold
+16 DEBUG: Raw Wikipedia summary: 
+16 DEBUG: NER tags for subject: [('Gold', 'NN', 'B-GPE')]
+16 A) I am sorry, I don't know the answer.
+
+17 Q) What is Gold?
+17 DEBUG: Parsed question - qtype: what, subject: Gold, keyword: None
+17 DEBUG: Initiating Wikipedia search for subject: Gold
+17 DEBUG: Raw Wikipedia summary: 
+17 DEBUG: NER tags for subject: [('Gold', 'NN', 'B-GPE')]
+17 A) I am sorry, I don't know the answer.
+
+18 Q) What is the Gold?
+18 DEBUG: Parsed question - qtype: what, subject: the Gold, keyword: None
+18 DEBUG: Initiating Wikipedia search for subject: the Gold
+18 DEBUG: Raw Wikipedia summary: Gold is a chemical element with the chemical symbol Au (from Latin aurum) and atomic number 79.
+18 DEBUG: NER tags for subject: [('the', 'DT', 'O'), ('Gold', 'NN', 'B-ORGANIZATION')]
+18 A) Gold is a chemical element with the chemical symbol Au (from Latin aurum) and atomic number 79.
+
+19 Q) What is Chemistry?
+19 DEBUG: Parsed question - qtype: what, subject: Chemistry, keyword: None
+19 DEBUG: Initiating Wikipedia search for subject: Chemistry
+19 DEBUG: Raw Wikipedia summary: Chemistry is the scientific study of the properties and behavior of matter.
+19 DEBUG: NER tags for subject: [('Chemistry', 'NN', 'B-GPE')]
+19 A) Chemistry is the scientific study of the properties and behavior of matter.
+
+20 Q) What is a photo?
+20 DEBUG: Parsed question - qtype: what, subject: a photo, keyword: None
+20 DEBUG: Initiating Wikipedia search for subject: a photo
+20 DEBUG: Raw Wikipedia summary: 
+20 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('photo', 'NN', 'O')]
+20 A) I am sorry, I don't know the answer.
+
+21 Q) What is a pokemon?
+21 DEBUG: Parsed question - qtype: what, subject: a pokemon, keyword: None
+21 DEBUG: Initiating Wikipedia search for subject: a pokemon
+21 DEBUG: Raw Wikipedia summary: Pokémon is a Japanese media franchise consisting of video games, animated series and films, a trading card game, and other related media.
+21 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('pokemon', 'NN', 'O')]
+21 A) Pokémon is a Japanese media franchise consisting of video games, animated series and films, a trading card game, and other related media.
+
+22 Q) What is Pokemon?
+22 DEBUG: Parsed question - qtype: what, subject: Pokemon, keyword: None
+22 DEBUG: Initiating Wikipedia search for subject: Pokemon
+22 DEBUG: Raw Wikipedia summary: 
+22 DEBUG: NER tags for subject: [('Pokemon', 'NN', 'B-GPE')]
+22 A) I am sorry, I don't know the answer.
+
+23 Q) What is a Jackal?
+23 DEBUG: Parsed question - qtype: what, subject: a Jackal, keyword: None
+23 DEBUG: Initiating Wikipedia search for subject: a Jackal
+23 DEBUG: Raw Wikipedia summary: Jackals are canids native to Africa and Eurasia.
+23 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('Jackal', 'NNP', 'B-GPE')]
+23 A) Jackals are canids native to Africa and Eurasia.
+
+24 Q) What is a tiger?
+24 DEBUG: Parsed question - qtype: what, subject: a tiger, keyword: None
+24 DEBUG: Initiating Wikipedia search for subject: a tiger
+24 DEBUG: Raw Wikipedia summary: The tiger (Panthera tigris) is a large cat and a member of the genus Panthera native to Asia.
+24 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('tiger', 'NN', 'O')]
+24 A) The tiger (Panthera tigris) is a large cat and a member of the genus Panthera native to Asia.
+
+25 Q) What is a cat?
+25 DEBUG: Parsed question - qtype: what, subject: a cat, keyword: None
+25 DEBUG: Initiating Wikipedia search for subject: a cat
+25 DEBUG: Raw Wikipedia summary: The cat (Felis catus), also referred to as the domestic cat or house cat, is a small domesticated carnivorous mammal.
+25 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('cat', 'NN', 'O')]
+25 A) The cat (Felis catus), also referred to as the domestic cat or house cat, is a small domesticated carnivorous mammal.
+
+26 Q) What is a dog?
+26 DEBUG: Parsed question - qtype: what, subject: a dog, keyword: None
+26 DEBUG: Initiating Wikipedia search for subject: a dog
+26 DEBUG: Raw Wikipedia summary: 
+26 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('dog', 'NN', 'O')]
+26 A) I am sorry, I don't know the answer.
+
+27 Q) What is a Feline?
+27 DEBUG: Parsed question - qtype: what, subject: a Feline, keyword: None
+27 DEBUG: Initiating Wikipedia search for subject: a Feline
+27 DEBUG: Raw Wikipedia summary: 
+27 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('Feline', 'NN', 'O')]
+27 A) I am sorry, I don't know the answer.
+
+28 Q) What are sunglasses?
+28 DEBUG: Parsed question - qtype: None, subject: What are sunglasses?, keyword: None
+28 DEBUG: Initiating Wikipedia search for subject: What are sunglasses?
+28 DEBUG: Raw Wikipedia summary: Sunglasses or sun glasses (informally called shades or sunnies; more names below) are a form of protective eyewear designed primarily to prevent bright sunlight and high-energy visible light from damaging or discomforting the eyes.
+28 DEBUG: NER tags for subject: [('What', 'WP', 'O'), ('are', 'VBP', 'O'), ('sunglasses', 'NNS', 'O'), ('?', '.', 'O')]
+28 A) I am sorry, I don't know the answer.
+
+29 Q) Who is Hitler?
+29 DEBUG: Parsed question - qtype: who, subject: Hitler, keyword: None
+29 DEBUG: Initiating Wikipedia search for subject: Hitler
+29 DEBUG: Raw Wikipedia summary: 
+29 DEBUG: NER tags for subject: [('Hitler', 'NN', 'B-GPE')]
+29 A) I am sorry, I don't know the answer.
+
+30 Q) Who was Adolf Hitler?
+30 DEBUG: Parsed question - qtype: who, subject: Adolf Hitler, keyword: None
+30 DEBUG: Initiating Wikipedia search for subject: Adolf Hitler
+30 DEBUG: Raw Wikipedia summary: 
+30 DEBUG: NER tags for subject: [('Adolf', 'NNP', 'B-PERSON'), ('Hitler', 'NNP', 'B-PERSON')]
+30 A) I am sorry, I don't know the answer.
+
+31 Q) What is War?
+31 DEBUG: Parsed question - qtype: what, subject: War, keyword: None
+31 DEBUG: Initiating Wikipedia search for subject: War
+31 DEBUG: Raw Wikipedia summary: War is an armed conflict between the armed forces of states, or between governmental forces and armed groups that are organized under a certain command structure and have the capacity to sustain military operations, or between such organized groups.
+31 DEBUG: NER tags for subject: [('War', 'NNP', 'O')]
+31 A) War is an armed conflict between the armed forces of states, or between governmental forces and armed groups that are organized under a certain command structure and have the capacity to sustain military operations, or between such organized groups.
+
+32 Q) What is a country?
+32 DEBUG: Parsed question - qtype: what, subject: a country, keyword: None
+32 DEBUG: Initiating Wikipedia search for subject: a country
+32 DEBUG: Raw Wikipedia summary: A country is a distinct part of the world, such as a state, nation, or other political entity.
+32 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('country', 'NN', 'O')]
+32 A) A country is a distinct part of the world, such as a state, nation, or other political entity.
+
+33 Q) What is Microsoft?
+33 DEBUG: Parsed question - qtype: what, subject: Microsoft, keyword: None
+33 DEBUG: Initiating Wikipedia search for subject: Microsoft
+33 DEBUG: Raw Wikipedia summary: Microsoft Corporation is an American multinational technology conglomerate headquartered in Redmond, Washington.
+33 DEBUG: NER tags for subject: [('Microsoft', 'NNP', 'B-PERSON')]
+33 A) Microsoft Corporation is an American multinational technology conglomerate headquartered in Redmond, Washington.
+
+34 Q) What is Facebook?
+34 DEBUG: Parsed question - qtype: what, subject: Facebook, keyword: None
+34 DEBUG: Initiating Wikipedia search for subject: Facebook
+34 DEBUG: Raw Wikipedia summary: A face book or facebook is a paper or online directory of individuals' photographs and names published by some American universities.
+34 DEBUG: NER tags for subject: [('Facebook', 'NN', 'B-GPE')]
+34 A) A face book or facebook is a paper or online directory of individuals' photographs and names published by some American universities.
+
+35 Q) What is the Facebook?
+35 DEBUG: Parsed question - qtype: what, subject: the Facebook, keyword: None
+35 DEBUG: Initiating Wikipedia search for subject: the Facebook
+35 DEBUG: Raw Wikipedia summary: Facebook is a social media and social networking service owned by the American technology conglomerate Meta.
+35 DEBUG: NER tags for subject: [('the', 'DT', 'O'), ('Facebook', 'NNP', 'B-ORGANIZATION')]
+35 A) Facebook is a social media and social networking service owned by the American technology conglomerate Meta.
+
+36 Q) What is Google?
+36 DEBUG: Parsed question - qtype: what, subject: Google, keyword: None
+36 DEBUG: Initiating Wikipedia search for subject: Google
+36 DEBUG: Raw Wikipedia summary: 
+36 DEBUG: NER tags for subject: [('Google', 'NN', 'B-GPE')]
+36 A) I am sorry, I don't know the answer.
+
+37 Q) What is the Google?
+37 DEBUG: Parsed question - qtype: what, subject: the Google, keyword: None
+37 DEBUG: Initiating Wikipedia search for subject: the Google
+37 DEBUG: Raw Wikipedia summary: Google LLC ( , GOO-gəl) is an American multinational corporation and technology company focusing on online advertising, search engine technology, cloud computing, computer software, quantum computing, e-commerce, consumer electronics, and artificial intelligence (AI).
+37 DEBUG: NER tags for subject: [('the', 'DT', 'O'), ('Google', 'NNP', 'B-ORGANIZATION')]
+37 A) Google LLC ( , GOO-gəl) is an American multinational corporation and technology company focusing on online advertising, search engine technology, cloud computing, computer software, quantum computing, e-commerce, consumer electronics, and artificial intelligence (AI).
+
+38 Q) What is AI?
+38 DEBUG: Parsed question - qtype: what, subject: AI, keyword: None
+38 DEBUG: Initiating Wikipedia search for subject: AI
+38 DEBUG: Raw Wikipedia summary: The atmosphere of Earth is composed of a layer of gas mixture that surrounds the Earth's planetary surface (both lands and oceans), known collectively as air, with variable quantities of suspended aerosols and particulates (which create weather features such as clouds and hazes), all retained by Earth's gravity.
+38 DEBUG: NER tags for subject: [('AI', 'NN', 'O')]
+38 A) The atmosphere of Earth is composed of a layer of gas mixture that surrounds the Earth's planetary surface (both lands and oceans), known collectively as air, with variable quantities of suspended aerosols and particulates (which create weather features such as clouds and hazes), all retained by Earth's gravity.
+
+39 Q) What is DOJ?
+39 DEBUG: Parsed question - qtype: what, subject: DOJ, keyword: None
+39 DEBUG: Initiating Wikipedia search for subject: DOJ
+39 DEBUG: Raw Wikipedia summary: 
+39 DEBUG: NER tags for subject: [('DOJ', 'NN', 'B-ORGANIZATION')]
+39 A) I am sorry, I don't know the answer.
+
+40 Q) What is a government?
+40 DEBUG: Parsed question - qtype: what, subject: a government, keyword: None
+40 DEBUG: Initiating Wikipedia search for subject: a government
+40 DEBUG: Raw Wikipedia summary: A government is the system or group of people governing an organized community, generally a state.
+40 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('government', 'NN', 'O')]
+40 A) A government is the system or group of people governing an organized community, generally a state.
+
+41 Q) What is a state?
+41 DEBUG: Parsed question - qtype: what, subject: a state, keyword: None
+41 DEBUG: Initiating Wikipedia search for subject: a state
+41 DEBUG: Raw Wikipedia summary: Arkansas State University (A-State or ASU) is a public research university in Jonesboro, Arkansas.
+41 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('state', 'NN', 'O')]
+41 A) Arkansas State University (A-State or ASU) is a public research university in Jonesboro, Arkansas.
+
+42 Q) What is a diary?
+42 DEBUG: Parsed question - qtype: what, subject: a diary, keyword: None
+42 DEBUG: Initiating Wikipedia search for subject: a diary
+42 DEBUG: Raw Wikipedia summary: A diary is a written or audiovisual memorable record, with discrete entries arranged by date reporting on what has happened over the course of a day or other period.
+42 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('diary', 'JJ', 'O')]
+42 A) A diary is a written or audiovisual memorable record, with discrete entries arranged by date reporting on what has happened over the course of a day or other period.
+
+43 Q) What is a calendar?
+43 DEBUG: Parsed question - qtype: what, subject: a calendar, keyword: None
+43 DEBUG: Initiating Wikipedia search for subject: a calendar
+43 DEBUG: Raw Wikipedia summary: A calendar is a system of organizing days.
+43 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('calendar', 'NN', 'O')]
+43 A) A calendar is a system of organizing days.
+
+44 Q) What is a computer?
+44 DEBUG: Parsed question - qtype: what, subject: a computer, keyword: None
+44 DEBUG: Initiating Wikipedia search for subject: a computer
+44 DEBUG: Raw Wikipedia summary: A computer is a machine that can be programmed to automatically carry out sequences of arithmetic or logical operations (computation).
+44 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('computer', 'NN', 'O')]
+44 A) A computer is a machine that can be programmed to automatically carry out sequences of arithmetic or logical operations (computation).
+
+45 Q) What is a machine?
+45 DEBUG: Parsed question - qtype: what, subject: a machine, keyword: None
+45 DEBUG: Initiating Wikipedia search for subject: a machine
+45 DEBUG: Raw Wikipedia summary: A Turing machine is a mathematical model of computation describing an abstract machine that manipulates symbols on a strip of tape according to a table of rules.
+45 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('machine', 'NN', 'O')]
+45 A) A Turing machine is a mathematical model of computation describing an abstract machine that manipulates symbols on a strip of tape according to a table of rules.
+
+46 Q) What is mathematics?
+46 DEBUG: Parsed question - qtype: what, subject: mathematics, keyword: None
+46 DEBUG: Initiating Wikipedia search for subject: mathematics
+46 DEBUG: Raw Wikipedia summary: Mathematics is a field of study that discovers and organizes methods, theories and theorems that are developed and proved for the needs of empirical sciences and mathematics itself.
+46 DEBUG: NER tags for subject: [('mathematics', 'NNS', 'O')]
+46 A) Mathematics is a field of study that discovers and organizes methods, theories and theorems that are developed and proved for the needs of empirical sciences and mathematics itself.
+
+47 Q) What is science?
+47 DEBUG: Parsed question - qtype: what, subject: science, keyword: None
+47 DEBUG: Initiating Wikipedia search for subject: science
+47 DEBUG: Raw Wikipedia summary: 
+47 DEBUG: NER tags for subject: [('science', 'NN', 'O')]
+47 A) I am sorry, I don't know the answer.
+
+48 Q) What is the Science?
+48 DEBUG: Parsed question - qtype: what, subject: the Science, keyword: None
+48 DEBUG: Initiating Wikipedia search for subject: the Science
+48 DEBUG: Raw Wikipedia summary: Science is a systematic discipline that builds and organises knowledge in the form of testable hypotheses and predictions about the universe.
+48 DEBUG: NER tags for subject: [('the', 'DT', 'O'), ('Science', 'NN', 'B-ORGANIZATION')]
+48 A) Science is a systematic discipline that builds and organises knowledge in the form of testable hypotheses and predictions about the universe.
+
+49 Q) What is the Universe?
+49 DEBUG: Parsed question - qtype: what, subject: the Universe, keyword: None
+49 DEBUG: Initiating Wikipedia search for subject: the Universe
+49 DEBUG: Raw Wikipedia summary: 
+49 DEBUG: NER tags for subject: [('the', 'DT', 'O'), ('Universe', 'NN', 'B-ORGANIZATION')]
+49 A) I am sorry, I don't know the answer.
+
+50 Q) What is Universe?
+50 DEBUG: Parsed question - qtype: what, subject: Universe, keyword: None
+50 DEBUG: Initiating Wikipedia search for subject: Universe
+50 DEBUG: Raw Wikipedia summary: 
+50 DEBUG: NER tags for subject: [('Universe', 'NN', 'B-GPE')]
+50 A) I am sorry, I don't know the answer.
+
+51 Q) What is a Universe?
+51 DEBUG: Parsed question - qtype: what, subject: a Universe, keyword: None
+51 DEBUG: Initiating Wikipedia search for subject: a Universe
+51 DEBUG: Raw Wikipedia summary: The universe is all of space and time and their contents.
+51 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('Universe', 'NN', 'B-ORGANIZATION')]
+51 A) The universe is all of space and time and their contents.
+
+52 Q) What is space?
+52 DEBUG: Parsed question - qtype: what, subject: space, keyword: None
+52 DEBUG: Initiating Wikipedia search for subject: space
+52 DEBUG: Raw Wikipedia summary: 
+52 DEBUG: NER tags for subject: [('space', 'NN', 'O')]
+52 A) I am sorry, I don't know the answer.
+
+53 Q) What is the space?
+53 DEBUG: Parsed question - qtype: what, subject: the space, keyword: None
+53 DEBUG: Initiating Wikipedia search for subject: the space
+53 DEBUG: Raw Wikipedia summary: 
+53 DEBUG: NER tags for subject: [('the', 'DT', 'O'), ('space', 'NN', 'O')]
+53 A) I am sorry, I don't know the answer.
+
+54 Q) What is a space?
+54 DEBUG: Parsed question - qtype: what, subject: a space, keyword: None
+54 DEBUG: Initiating Wikipedia search for subject: a space
+54 DEBUG: Raw Wikipedia summary: A Space is a Canadian artist-run centre located in Toronto, Ontario
+
+
+== Background ==
+The gallery originated as the Nightingale Arts Council in 1970, and was founded in 1971.
+54 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('space', 'NN', 'O')]
+54 A) A Space is a Canadian artist-run centre located in Toronto, Ontario
+
+
+== Background ==
+The gallery originated as the Nightingale Arts Council in 1970, and was founded in 1971.
+
+55 Q) What is a council?
+55 DEBUG: Parsed question - qtype: what, subject: a council, keyword: None
+55 DEBUG: Initiating Wikipedia search for subject: a council
+55 DEBUG: Raw Wikipedia summary: A council is a group of people who come together to consult, deliberate, or make decisions.
+55 DEBUG: NER tags for subject: [('a', 'DT', 'O'), ('council', 'NN', 'O')]
+55 A) A council is a group of people who come together to consult, deliberate, or make decisions.
+
+56 Q) Who was Winston Churchill?
+56 DEBUG: Parsed question - qtype: who, subject: Winston Churchill, keyword: None
+56 DEBUG: Initiating Wikipedia search for subject: Winston Churchill
+56 DEBUG: Raw Wikipedia summary: Sir Winston Leonard Spencer Churchill (30 November 1874 – 24 January 1965) was a British statesman, military officer, and writer who was Prime Minister of the United Kingdom from 1940 to 1945 (during the Second World War) and again from 1951 to 1955.
+56 DEBUG: NER tags for subject: [('Winston', 'NNP', 'B-PERSON'), ('Churchill', 'NNP', 'B-PERSON')]
+56 A) Sir Winston Leonard Spencer Churchill (30 November 1874 – 24 January 1965) was a British statesman, military officer, and writer who was Prime Minister of the United Kingdom from 1940 to 1945 (during the Second World War) and again from 1951 to 1955.
+
+57 Q) Where was Winston Churchill born?
+57 DEBUG: Parsed question - qtype: where, subject: Winston Churchill, keyword: born
+57 DEBUG: Initiating Wikipedia search for subject: Winston Churchill
+57 DEBUG: Raw Wikipedia summary: Sir Winston Leonard Spencer Churchill (30 November 1874 – 24 January 1965) was a British statesman, military officer, and writer who was Prime Minister of the United Kingdom from 1940 to 1945 (during the Second World War) and again from 1951 to 1955.
+57 DEBUG: NER tags for subject: [('Winston', 'NNP', 'B-PERSON'), ('Churchill', 'NNP', 'B-PERSON')]
+57 DEBUG: Extracted location: 1940 to 1945
+57 A) Winston Churchill is located in 1940 to 1945.
+
+58 Q) When was winston churchill born?
+58 DEBUG: Parsed question - qtype: when, subject: winston churchill, keyword: born
+58 DEBUG: Initiating Wikipedia search for subject: winston churchill
+58 DEBUG: Raw Wikipedia summary: Sir Winston Leonard Spencer Churchill (30 November 1874 – 24 January 1965) was a British statesman, military officer, and writer who was Prime Minister of the United Kingdom from 1940 to 1945 (during the Second World War) and again from 1951 to 1955.
+58 DEBUG: NER tags for subject: [('winston', 'NN', 'O'), ('churchill', 'NN', 'O')]
+58 DEBUG: Extracted date: 30 November 1874
+58 A) winston churchill was born on 30 November 1874.
+
+59 Q) Where was Nehru born?
+59 DEBUG: Parsed question - qtype: where, subject: Nehru, keyword: born
+59 DEBUG: Initiating Wikipedia search for subject: Nehru
+59 DEBUG: Raw Wikipedia summary: Jawaharlal Nehru (14 November 1889 – 27 May 1964) was an Indian anti-colonial nationalist, secular humanist, social democrat, and statesman who was a central figure in India during the middle of the 20th century.
+59 DEBUG: NER tags for subject: [('Nehru', 'NN', 'B-GPE')]
+59 DEBUG: Extracted location: india during the middle of the 20th century.
+59 A) Nehru is located in india during the middle of the 20th century..
+
+60 Q) What is
+60 DEBUG: Parsed question - qtype: None, subject: What is, keyword: None
+60 DEBUG: Initiating Wikipedia search for subject: What is
+60 DEBUG: Raw Wikipedia summary: 
+60 DEBUG: NER tags for subject: [('What', 'WP', 'O'), ('is', 'VBZ', 'O')]
+60 A) I am sorry, I don't know the answer.
+
+61 Q) Anime
+61 DEBUG: Parsed question - qtype: None, subject: Anime, keyword: None
+61 DEBUG: Initiating Wikipedia search for subject: Anime
+61 DEBUG: Raw Wikipedia summary: Animals are multicellular, eukaryotic organisms in the biological kingdom Animalia ().
+61 DEBUG: NER tags for subject: [('Anime', 'NN', 'B-GPE')]
+61 A) I am sorry, I don't know the answer.
+
+62 Q) What is Anime?
+62 DEBUG: Parsed question - qtype: what, subject: Anime, keyword: None
+62 DEBUG: Initiating Wikipedia search for subject: Anime
+62 DEBUG: Raw Wikipedia summary: Animals are multicellular, eukaryotic organisms in the biological kingdom Animalia ().
+62 DEBUG: NER tags for subject: [('Anime', 'NN', 'B-GPE')]
+62 A) Animals are multicellular, eukaryotic organisms in the biological kingdom Animalia ().
+
+User exited the program.
+--- Log ended at 2025-03-26 19:55:55 ---

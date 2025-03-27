@@ -1,3 +1,8 @@
+# AIT 526 - Programming Assignment 2
+# Purpose: A simple question-answering system that uses Wikipedia to answer questions.
+# Team 12
+# Members: Aakiff Panjwani, Vansh Setpal, Hamaad Zuberi
+
 import wikipedia
 import sys
 import re

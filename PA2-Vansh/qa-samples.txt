@@ -3,114 +3,124 @@ Question Type: Where
 =====
 Correct Responses
 =====
-1 Q) Where is the Taj Mahal?
-1 A) the Taj Mahal is located in the right bank of the river yamuna in agra, uttar pradesh, india..
+1 Question: Where is the Taj Mahal?
+1 System Answer: the Taj Mahal is located in the right bank of the river yamuna in agra, uttar pradesh, india..
 
-2 Q) Where is George Mason University?
-2 A) George Mason University is located in fairfax county, virginia, united states..
+2 Question: Where is George Mason University?
+2 System Answer: George Mason University is located in fairfax county, virginia, united states..
 
-3 Q) Where is the Statue of Liberty?
-3 A) the Statue of Liberty is located in liberty island in new york harbor, within new york city..
+3 Question: Where is the Statue of Liberty?
+3 System Answer: the Statue of Liberty is located in liberty island in new york harbor, within new york city..
 
-32 Q) Where is the Eiffel Tower?
-32 A) the Eiffel Tower is located in the champ de mars in paris, france..
+4 Question: Where is the Eiffel Tower?
+4 System Answer: the Eiffel Tower is located in the champ de mars in paris, france..
 
-3 Q) Where is Wankhade Stadium?
-3 A) Wankhade Stadium is located in mumbai, india..
+5 Question: Where is Wankhade Stadium?
+5 System Answer: Wankhade Stadium is located in mumbai, india..
 
 =====
 Incorrect Responses
 =====
 
-1 Q) Where was Gandhi born?
-1 A) Gandhi is located in lead the successful campaign for india's independence from british rule..
+1 Question: Where was Gandhi born?
+1 System Answer: Gandhi is located in lead the successful campaign for india's independence from british rule..
+1 Correct Answer: Gandhi was born in Porbandar, Gujarat, India.
 
-15 Q) Where was Thomas Jefferson born?
-15 A) Thomas Jefferson is located in 1801 to 1809..
+2 Question: Where was Thomas Jefferson born?
+2 System Answer: Thomas Jefferson is located in 1801 to 1809..
+2 Correct Answer: Thomas Jefferson was born in Shadwell, Virginia, USA.
 
-57 Q) Where was Winston Churchill born?
-57 A) Winston Churchill is located in 1940 to 1945.
+3 Question: Where was Winston Churchill born?
+3 System Answer: Winston Churchill is located in 1940 to 1945.
+3 Correct Answer: Winston Churchill was born at Blenheim Palace, Woodstock, Oxfordshire, England.
 
-59 Q) Where was Nehru born?
-59 A) Nehru is located in india during the middle of the 20th century..
+4 Question: Where was Nehru born?
+4 System Answer: Nehru is located in india during the middle of the 20th century..
+4 Correct Answer: Jawaharlal Nehru was born in Allahabad, Uttar Pradesh, India.
 
 =====
 Question Type: Who
 =====
 Correct Responses
 =====
-2 Q) Who is George Mason?
-2 A) George Mason (December 11, 1725 [O.S. November 30, 1725] – October 7, 1792) was an American planter, politician, Founding Father, and delegate to the U.S. Constitutional Convention in Philadelphia in 1787, where he was one of three delegates who refused to sign the Constitution.
+1 Question: Who is George Mason?
+1 System Answer: George Mason (December 11, 1725 [O.S. November 30, 1725] – October 7, 1792) was an American planter, politician, Founding Father, and delegate to the U.S. Constitutional Convention in Philadelphia in 1787, where he was one of three delegates who refused to sign the Constitution.
 
-6 Q) Who is Thomas Jefferson?
-6 A) Thomas Jefferson (April 13 [O.S. April 2], 1743 – July 4, 1826) was an American Founding Father who served as the third president of the United States from 1801 to 1809.
+2 Question: Who is Thomas Jefferson?
+2 System Answer: Thomas Jefferson (April 13 [O.S. April 2], 1743 – July 4, 1826) was an American Founding Father who served as the third president of the United States from 1801 to 1809.
 
-9 Q) Who is Donald Trump?
-9 A) Donald John Trump (born June 14, 1946) is an American politician, media personality, and businessman who is the 47th president of the United States.
+3 Question: Who is Donald Trump?
+3 System Answer: Donald John Trump (born June 14, 1946) is an American politician, media personality, and businessman who is the 47th president of the United States.
 
-10 Q) Who is Barack Obama?
-10 A) Barack Hussein Obama II (born August 4, 1961) is an American politician who was the 44th president of the United States from 2009 to 2017.
+4 Question: Who is Barack Obama?
+4 System Answer: Barack Hussein Obama II (born August 4, 1961) is an American politician who was the 44th president of the United States from 2009 to 2017.
 
-39 Q) Who is Albert Einstein?
-39 A) Albert Einstein (14 March 1879 – 18 April 1955) was a German-born theoretical physicist who is best known for developing the theory of relativity.
+5 Question: Who is Albert Einstein?
+5 System Answer: Albert Einstein (14 March 1879 – 18 April 1955) was a German-born theoretical physicist who is best known for developing the theory of relativity.
 
 =====
 Incorrect Responses
 =====
-8 Q) Who is MJ?
-8 A) M, or m, is the thirteenth letter of the Latin alphabet, used in the modern English alphabet, the alphabets of several western European languages and others worldwide.
+1 Question: Who is MJ?
+1 System Answer: M, or m, is the thirteenth letter of the Latin alphabet, used in the modern English alphabet, the alphabets of several western European languages and others worldwide.
+1 Correct Answer: “MJ” commonly refers to Michael Jackson, the American pop singer known as the “King of Pop.”
 
 =====
 Question Type: What
 =====
 Correct Responses
 =====
-4 Q) What is the George Mason University?
-4 A) George Mason University (GMU) is a public research university in Fairfax County, Virginia, United States.
+1 Question: What is the George Mason University?
+1 System Answer: George Mason University (GMU) is a public research university in Fairfax County, Virginia, United States.
 
-11 Q) What is a black hole?
-11 A) A black hole is a massive, compact astronomical object so dense that its gravity prevents anything from escaping, even light.
+2 Question: What is a black hole?
+2 System Answer: A black hole is a massive, compact astronomical object so dense that its gravity prevents anything from escaping, even light.
 
-16 Q) What is a fork?
-16 A) In cutlery or kitchenware, a fork (from Latin: furca 'pitchfork') is a utensil, now usually made of metal, whose long handle terminates in a head that branches into several narrow and often slightly curved tines with which one can spear foods either to hold them to cut with a knife or to lift them to the mouth.
+3 Question: What is a fork?
+3 System Answer: In cutlery or kitchenware, a fork (from Latin: furca 'pitchfork') is a utensil, now usually made of metal, whose long handle terminates in a head that branches into several narrow and often slightly curved tines with which one can spear foods either to hold them to cut with a knife or to lift them to the mouth.
 
-28 Q) What is the European Union?
-28 A) The European Union (EU) is a supranational political and economic union of 27 member states that are located primarily in Europe.
+4 Question: What is the European Union?
+4 System Answer: The European Union (EU) is a supranational political and economic union of 27 member states that are located primarily in Europe.
 
-31 Q) What is the World War II?
-31 A) World War II or the Second World War (1 September 1939 – 2 September 1945) was a global conflict between two coalitions: the Allies and the Axis powers.
+5 Question: What is the World War II?
+5 System Answer: World War II or the Second World War (1 September 1939 – 2 September 1945) was a global conflict between two coalitions: the Allies and the Axis powers.
 
 =====
 Incorrect Responses
 =====
-38 Q) What is AI?
-38 A) The atmosphere of Earth is composed of a layer of gas mixture that surrounds the Earth's planetary surface (both lands and oceans), known collectively as air, with variable quantities of suspended aerosols and particulates (which create weather features such as clouds and hazes), all retained by Earth's gravity.
+1 Question: What is AI?
+1 System Answer: The atmosphere of Earth is composed of a layer of gas mixture that surrounds the Earth's planetary surface (both lands and oceans), known collectively as air, with variable quantities of suspended aerosols and particulates (which create weather features such as clouds and hazes), all retained by Earth's gravity.
+1 Correct Answer: AI (Artificial Intelligence) is the simulation of human intelligence in machines, enabling them to perform tasks like learning, reasoning, problem-solving, and decision-making.
 
-41 Q) What is a state?
-41 A) Arkansas State University (A-State or ASU) is a public research university in Jonesboro, Arkansas.
+2 Question: What is a state?
+2 System Answer: Arkansas State University (A-State or ASU) is a public research university in Jonesboro, Arkansas.
+2 Correct Answer: A state is a defined political entity with a government, territory, population, and the ability to enter into relations with other states.
 
-62 Q) What is Anime?
-62 A) Animals are multicellular, eukaryotic organisms in the biological kingdom Animalia ().
+3 Question: What is Anime?
+3 System Answer: Animals are multicellular, eukaryotic organisms in the biological kingdom Animalia ().
+3 Correct Answer: Anime is a style of animated film and television originating from Japan
 
 =====
 Question Type: When
 =====
 Correct Responses
 =====
-8 Q) When was Donald Trump born?
-8 A) Donald Trump was born on June 14, 1946.
+1 Question: When was Donald Trump born?
+1 System Answer: Donald Trump was born on June 14, 1946.
 
-40 Q) When was Einstein born?
-40 A) Einstein was born on 14 March 1879.
+2 Question: When was Einstein born?
+2 System Answer: Einstein was born on 14 March 1879.
 
-9 Q) When was Nehru born?
-9 A) Nehru was born on 14 November 1889.
+3 Question: When was Nehru born?
+3 System Answer: Nehru was born on 14 November 1889.
 
 =====
 Incorrect Responses
 =====
-7 Q) When was Thomas Jefferson born?
-7 A) Thomas Jefferson was born on July 4, 1826.
+1 Question: When was Thomas Jefferson born?
+1 System Answer: Thomas Jefferson was born on July 4, 1826.
+1 Correct Answer: Thomas Jefferson was born on April 13, 1743.
 
-2 Q) When was Gandhi born?
-2 A) Gandhi was born on 30 January 1948.
+2 Question: When was Gandhi born?
+2 System Answer: Gandhi was born on 30 January 1948.
+2 Correct Answer: Gandhi was born on October 2, 1869.

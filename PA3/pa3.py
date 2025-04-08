@@ -2,23 +2,41 @@ import os
 import re
 import string
 import numpy as np
-from collections import Counter
+from collections import Counter, defaultdict
 from nltk.tokenize import word_tokenize
-from nltk.stem import PorterStemmer
+from nltk.stem import PorterStemmer, SnowballStemmer
+import emoji
+from bs4 import BeautifulSoup
 
 # Download necessary NLTK data (run this once)
 # import nltk
 # nltk.download('punkt')
 
 def clean_text(text):
-    """Removes HTML tags from text."""
-    clean = re.compile('<.*?>')
-    return re.sub(clean, '', text)
+    """Removes HTML tags from text and handles emojis."""
+    # Remove HTML tags using BeautifulSoup
+    soup = BeautifulSoup(text, 'html.parser')
+    text = soup.get_text()
+    
+    # Convert emojis to text
+    text = emoji.demojize(text)
+    
+    # Remove URLs
+    text = re.sub(r'http\S+|www\S+|https\S+', '', text, flags=re.MULTILINE)
+    
+    # Replace multiple spaces with single space
+    text = re.sub(r'\s+', ' ', text)
+    
+    return text.strip()
 
 def process_token(token, use_stemming, stemmer):
     """Processes a single token: applies stemming or capitalization rules."""
+    # Handle punctuation separately
+    if token in string.punctuation:
+        return token
+    
     if use_stemming:
-        # Stemming usually done on lowercased words
+        # Use Snowball stemmer for better performance
         return stemmer.stem(token.lower())
     else:
         # Lowercase if starts with capital but not all caps
@@ -46,8 +64,9 @@ def create_vocabulary(data_dir, use_stemming):
             - set: Vocabulary.
             - dict: Map from word to index in the vocabulary list.
     """
-    vocabulary = set()
-    stemmer = PorterStemmer() if use_stemming else None
+    positive_words = set()
+    negative_words = set()
+    stemmer = SnowballStemmer('english') if use_stemming else None
     stem_tag = " (stemmed)" if use_stemming else " (no stemming)"
 
     print(f"Creating vocabulary{stem_tag} from subdirectories of: {data_dir}")
@@ -55,32 +74,51 @@ def create_vocabulary(data_dir, use_stemming):
         print(f"Error: Base directory not found at {data_dir}")
         return set(), {}
 
-    for sub_dir in ['positive', 'negative']:
-        current_dir = os.path.join(data_dir, sub_dir)
-        if not os.path.isdir(current_dir):
-            print(f"Warning: Subdirectory not found at {current_dir}")
-            continue
-
-        print(f"Processing files in: {current_dir}")
-        for filename in os.listdir(current_dir):
-            filepath = os.path.join(current_dir, filename)
+    # Process positive documents
+    pos_dir = os.path.join(data_dir, 'positive')
+    if os.path.isdir(pos_dir):
+        for filename in os.listdir(pos_dir):
+            filepath = os.path.join(pos_dir, filename)
             if os.path.isfile(filepath):
                 try:
                     with open(filepath, 'r', encoding='utf-8') as f:
                         text = f.read()
                         processed_tokens = tokenize_and_process(text, use_stemming, stemmer)
-                        vocabulary.update(processed_tokens)
+                        positive_words.update(processed_tokens)
                 except Exception as e:
-                    print(f"Error processing file {filename} in {sub_dir}: {e}")
+                    print(f"Error processing file {filename} in positive: {e}")
 
+    # Process negative documents
+    neg_dir = os.path.join(data_dir, 'negative')
+    if os.path.isdir(neg_dir):
+        for filename in os.listdir(neg_dir):
+            filepath = os.path.join(neg_dir, filename)
+            if os.path.isfile(filepath):
+                try:
+                    with open(filepath, 'r', encoding='utf-8') as f:
+                        text = f.read()
+                        processed_tokens = tokenize_and_process(text, use_stemming, stemmer)
+                        negative_words.update(processed_tokens)
+                except Exception as e:
+                    print(f"Error processing file {filename} in negative: {e}")
+
+    # Create vocabulary and mapping
+    vocabulary = positive_words.union(negative_words)
     vocab_list = sorted(list(vocabulary))
     vocab_map = {word: i for i, word in enumerate(vocab_list)}
+    
+    # Create class-specific word dictionaries
+    class_words = {
+        1: {word: 1 for word in positive_words},  # Positive class
+        0: {word: 0 for word in negative_words}   # Negative class
+    }
+    
     print(f"Vocabulary size{stem_tag}: {len(vocab_list)}")
-    return vocabulary, vocab_map
+    return vocabulary, vocab_map, class_words
 
 def vectorize_data(data_dir, vocab_map, representation_type, use_stemming):
     """
-    Converts documents into Bag-of-Words feature vectors based on a given vocabulary map.
+    Converts documents into feature vectors based on a given vocabulary map.
 
     Args:
         data_dir (str): Path to the directory containing 'positive' and 'negative' subdirectories.
@@ -96,7 +134,7 @@ def vectorize_data(data_dir, vocab_map, representation_type, use_stemming):
     vocab_size = len(vocab_map)
     feature_vectors = []
     labels = []
-    stemmer = PorterStemmer() if use_stemming else None
+    stemmer = SnowballStemmer('english') if use_stemming else None
     stem_tag = ", stemmed" if use_stemming else ""
 
     print(f"\nVectorizing data ({representation_type}{stem_tag}) from: {data_dir}")
@@ -105,17 +143,22 @@ def vectorize_data(data_dir, vocab_map, representation_type, use_stemming):
         print(f"Error: Base directory not found at {data_dir}")
         return np.array([]), np.array([])
 
-    for label_int, sub_dir in enumerate(['negative', 'positive']): # Assign 0 to negative, 1 to positive
+    for label_int, sub_dir in enumerate(['negative', 'positive']):
         current_dir = os.path.join(data_dir, sub_dir)
         if not os.path.isdir(current_dir):
             print(f"Warning: Subdirectory not found at {current_dir} during vectorization.")
             continue
 
-        # print(f"Processing files in: {current_dir}") # Optional: reduce verbosity
         for filename in os.listdir(current_dir):
             filepath = os.path.join(current_dir, filename)
             if os.path.isfile(filepath):
-                doc_vector = np.zeros(vocab_size, dtype=int)
+                if representation_type == 'binary':
+                    doc_vector = np.zeros(vocab_size, dtype=int)
+                    unique_tokens = set()
+                else:  # frequency
+                    doc_vector = np.zeros(vocab_size, dtype=int)
+                    token_counts = defaultdict(int)
+
                 try:
                     with open(filepath, 'r', encoding='utf-8') as f:
                         text = f.read()
@@ -124,14 +167,15 @@ def vectorize_data(data_dir, vocab_map, representation_type, use_stemming):
                         if representation_type == 'binary':
                             for token in processed_tokens:
                                 if token in vocab_map:
-                                    index = vocab_map[token]
-                                    doc_vector[index] = 1
-                        elif representation_type == 'frequency':
-                            token_counts = Counter(processed_tokens)
-                            for token, count in token_counts.items():
+                                    unique_tokens.add(token)
+                            for token in unique_tokens:
+                                doc_vector[vocab_map[token]] = 1
+                        else:  # frequency
+                            for token in processed_tokens:
                                 if token in vocab_map:
-                                    index = vocab_map[token]
-                                    doc_vector[index] = count
+                                    token_counts[token] += 1
+                            for token, count in token_counts.items():
+                                doc_vector[vocab_map[token]] = count
 
                     feature_vectors.append(doc_vector)
                     labels.append(label_int)
@@ -146,34 +190,34 @@ def train_naive_bayes(features, labels):
 
     Args:
         features (numpy.ndarray): Document-term matrix (docs x vocab_size).
-                                  Can be frequency counts or binary presence.
         labels (numpy.ndarray): Corresponding labels (0 or 1) for each document.
 
     Returns:
         tuple: A tuple containing:
-            - numpy.ndarray: Log prior probabilities for each class [log P(c=0), log P(c=1)].
-            - numpy.ndarray: Log likelihood probabilities for each word given class (vocab_size x 2).
-                           Column 0: log P(w | c=0), Column 1: log P(w | c=1)
+            - numpy.ndarray: Log prior probabilities for each class.
+            - numpy.ndarray: Log likelihood probabilities for each word given class.
     """
     n_docs, vocab_size = features.shape
-    n_classes = 2 # We have positive (1) and negative (0)
+    n_classes = 2  # We have positive (1) and negative (0)
 
+    # Calculate priors
     log_priors = np.zeros(n_classes)
-    log_likelihoods = np.zeros((vocab_size, n_classes))
-
-    for c in range(n_classes): # 0 for negative, 1 for positive
-        docs_in_class = features[labels == c]
-        n_docs_in_class = docs_in_class.shape[0]
+    for c in range(n_classes):
+        n_docs_in_class = np.sum(labels == c)
         log_priors[c] = np.log(n_docs_in_class / n_docs)
 
+    # Calculate likelihoods
+    log_likelihoods = np.zeros((vocab_size, n_classes))
+    for c in range(n_classes):
+        docs_in_class = features[labels == c]
         word_counts_in_class = np.sum(docs_in_class, axis=0)
         total_words_in_class = np.sum(word_counts_in_class)
-
+        
+        # Add-1 smoothing
         numerator = word_counts_in_class + 1
         denominator = total_words_in_class + vocab_size
         log_likelihoods[:, c] = np.log(numerator) - np.log(denominator)
 
-    # print(f"Training complete. Log priors: {log_priors}") # Reduce verbosity
     return log_priors, log_likelihoods
 
 def predict_naive_bayes(features, log_priors, log_likelihoods):
@@ -182,25 +226,32 @@ def predict_naive_bayes(features, log_priors, log_likelihoods):
 
     Args:
         features (numpy.ndarray): Test features (n_test_docs x vocab_size).
-        log_priors (numpy.ndarray): Log prior probabilities [log P(c=0), log P(c=1)].
+        log_priors (numpy.ndarray): Log prior probabilities.
         log_likelihoods (numpy.ndarray): Log likelihoods (vocab_size x 2).
 
     Returns:
         numpy.ndarray: Predicted labels (0 or 1) for each test document.
     """
     # Calculate score for each class for all documents
-    # Score(c) = log P(c) + sum(feature_vector * log P(w|c))
-    # Using matrix multiplication: features @ log_likelihoods
-    # Result shape: (n_test_docs x 2)
-    scores = log_priors + features @ log_likelihoods
+    scores = np.zeros((features.shape[0], 2))
+    
+    for c in range(2):
+        # Start with log prior
+        scores[:, c] = log_priors[c]
+        
+        # Add log likelihood for each word in the document
+        for i in range(features.shape[0]):
+            word_indices = np.where(features[i] > 0)[0]
+            for idx in word_indices:
+                scores[i, c] += log_likelihoods[idx, c] * features[i, idx]
 
-    # Predict the class with the higher score (argmax along axis 1)
+    # Predict the class with the higher score
     predictions = np.argmax(scores, axis=1)
     return predictions
 
 def calculate_metrics(true_labels, predictions):
     """
-    Calculates accuracy and confusion matrix.
+    Calculates accuracy, precision, recall, and F1 score.
 
     Args:
         true_labels (numpy.ndarray): True labels (0 or 1).
@@ -209,22 +260,33 @@ def calculate_metrics(true_labels, predictions):
     Returns:
         tuple: A tuple containing:
             - float: Accuracy.
-            - dict: Confusion matrix {'TN': int, 'FP': int, 'FN': int, 'TP': int}.
+            - float: Precision.
+            - float: Recall.
+            - float: F1 score.
+            - dict: Confusion matrix.
     """
-    accuracy = np.mean(true_labels == predictions)
-
+    # Calculate confusion matrix
     TN = np.sum((true_labels == 0) & (predictions == 0))
     FP = np.sum((true_labels == 0) & (predictions == 1))
     FN = np.sum((true_labels == 1) & (predictions == 0))
     TP = np.sum((true_labels == 1) & (predictions == 1))
 
     confusion_matrix = {'TN': TN, 'FP': FP, 'FN': FN, 'TP': TP}
-    return accuracy, confusion_matrix
+
+    # Calculate metrics
+    accuracy = (TP + TN) / (TP + TN + FP + FN)
+    
+    # Handle division by zero
+    precision = TP / (TP + FP) if (TP + FP) > 0 else 0
+    recall = TP / (TP + FN) if (TP + FN) > 0 else 0
+    f1 = 2 * (precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
+
+    return accuracy, precision, recall, f1, confusion_matrix
 
 if __name__ == '__main__':
     train_data_dir = 'tweet/train'
     test_data_dir = 'tweet/test'
-    results_file = 'results.log'
+    results_file = 'results2.log'
 
     results_log_content = [] # Store lines for the log file
 
@@ -236,7 +298,7 @@ if __name__ == '__main__':
 
         # 1. Create Vocabulary and Map from Training Data
         print(f"--- Step 1: Creating Vocabulary ({stem_label}) ---")
-        vocab, vocab_map = create_vocabulary(train_data_dir, use_stemming=use_stem)
+        vocab, vocab_map, class_words = create_vocabulary(train_data_dir, use_stemming=use_stem)
         if not vocab_map:
             print(f"Failed to create vocabulary for {stem_label}. Skipping.")
             results_log_content.append("ERROR: Failed to create vocabulary.\n")
@@ -248,12 +310,6 @@ if __name__ == '__main__':
                 train_data_dir, vocab_map, rep_type, use_stemming=use_stem
             )
             print(f"Train features shape: {features_train.shape}")
-            print(f"Train labels shape: {labels_train.shape}")
-
-            if features_train.size == 0:
-                 print(f"Failed to vectorize training data for {stem_label}, {rep_type}. Skipping.")
-                 results_log_content.append(f"ERROR: Failed to vectorize training data ({stem_label}, {rep_type}).\n")
-                 continue
 
             # 3. Train Naive Bayes
             print(f"--- Step 3: Training Classifier ({rep_type}, {stem_label}) ---")
@@ -266,12 +322,6 @@ if __name__ == '__main__':
                 test_data_dir, vocab_map, rep_type, use_stemming=use_stem
             )
             print(f"Test features shape: {features_test.shape}")
-            print(f"Test labels shape: {labels_test.shape}")
-
-            if features_test.size == 0:
-                 print(f"Failed to vectorize test data for {stem_label}, {rep_type}. Skipping.")
-                 results_log_content.append(f"ERROR: Failed to vectorize test data ({stem_label}, {rep_type}).\n")
-                 continue
 
             # 5. Predict on Test Data
             print(f"--- Step 5: Predicting on Test Data ({rep_type}, {stem_label}) ---")
@@ -280,28 +330,26 @@ if __name__ == '__main__':
 
             # 6. Evaluate
             print(f"--- Step 6: Evaluating ({rep_type}, {stem_label}) ---")
-            accuracy, conf_matrix = calculate_metrics(labels_test, predictions)
+            accuracy, precision, recall, f1, conf_matrix = calculate_metrics(labels_test, predictions)
             print(f"Accuracy: {accuracy:.4f}")
+            print(f"Precision: {precision:.4f}")
+            print(f"Recall: {recall:.4f}")
+            print(f"F1 Score: {f1:.4f}")
             print(f"Confusion Matrix: {conf_matrix}")
 
             # Append results to log content
             results_log_content.append(f"\n--- Model: {stem_label} + {rep_type.capitalize()} ---")
             results_log_content.append(f"Accuracy: {accuracy:.4f}")
+            results_log_content.append(f"Precision: {precision:.4f}")
+            results_log_content.append(f"Recall: {recall:.4f}")
+            results_log_content.append(f"F1 Score: {f1:.4f}")
             results_log_content.append("Confusion Matrix:")
             results_log_content.append(f"  Predicted:")
-            results_log_content.append(f"         Neg(0) Pos(1)")
-            results_log_content.append(f"Actual Neg(0) [ {conf_matrix['TN']:^5} | {conf_matrix['FP']:^5} ]")
-            results_log_content.append(f"Actual Pos(1) [ {conf_matrix['FN']:^5} | {conf_matrix['TP']:^5} ]")
-            results_log_content.append("") # Add a blank line for readability
+            results_log_content.append(f"    Negative: {conf_matrix['TN']} (TN), {conf_matrix['FP']} (FP)")
+            results_log_content.append(f"    Positive: {conf_matrix['FN']} (FN), {conf_matrix['TP']} (TP)")
+            results_log_content.append("")
 
-
-    # 7. Save results to file
-    print(f"\n--- Step 7: Saving Results to {results_file} ---")
-    try:
-        with open(results_file, 'w') as f:
-            f.write("\n".join(results_log_content))
-        print("Results saved successfully.")
-    except Exception as e:
-        print(f"Error saving results to {results_file}: {e}")
-
-    print("\n===== All Processing Complete =====")
+    # Write results to file
+    with open(results_file, 'w') as f:
+        f.write('\n'.join(results_log_content))
+    print(f"\nResults written to {results_file}")

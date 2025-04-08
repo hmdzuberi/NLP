@@ -13,59 +13,49 @@ from bs4 import BeautifulSoup
 # nltk.download('punkt')
 
 def clean_text(text):
-    """Removes HTML tags from text and handles emojis."""
-    # Remove HTML tags using BeautifulSoup
+    # Parse and remove HTML tags using BeautifulSoup
     soup = BeautifulSoup(text, 'html.parser')
     text = soup.get_text()
     
-    # Convert emojis to text
+    # Convert emoji characters to their text descriptions
     text = emoji.demojize(text)
     
-    # Remove URLs
+    # Remove any URLs from the text using regex
     text = re.sub(r'http\S+|www\S+|https\S+', '', text, flags=re.MULTILINE)
     
-    # Replace multiple spaces with single space
+    # Normalize whitespace by replacing multiple spaces with a single space
     text = re.sub(r'\s+', ' ', text)
     
     return text.strip()
 
 def process_token(token, use_stemming, stemmer):
-    """Processes a single token: applies stemming or capitalization rules."""
-    # Handle punctuation separately
+    # Keep punctuation as is
     if token in string.punctuation:
         return token
     
     if use_stemming:
-        # Use Snowball stemmer for better performance
+        # Apply stemming and convert to lowercase
         return stemmer.stem(token.lower())
     else:
-        # Lowercase if starts with capital but not all caps
+        # Only lowercase words that start with capital letter but aren't all caps
         if token and token[0].isupper() and not token.isupper():
             return token.lower()
         return token
 
 def tokenize_and_process(text, use_stemming, stemmer):
-    """Cleans text, tokenizes, and processes tokens."""
+    # Clean the text first
     cleaned_text = clean_text(text)
+    # Split into tokens
     tokens = word_tokenize(cleaned_text)
+    # Process each token
     processed_tokens = [process_token(t, use_stemming, stemmer) for t in tokens]
     return processed_tokens
 
 def create_vocabulary(data_dir, use_stemming):
-    """
-    Reads training data, processes tokens, and creates vocabulary and its map.
-
-    Args:
-        data_dir (str): Path to the directory containing 'positive' and 'negative' subdirectories.
-        use_stemming (bool): Whether to apply stemming.
-
-    Returns:
-        tuple: A tuple containing:
-            - set: Vocabulary.
-            - dict: Map from word to index in the vocabulary list.
-    """
+    # Initialize sets to store unique words from each class
     positive_words = set()
     negative_words = set()
+    # Initialize stemmer if needed
     stemmer = SnowballStemmer('english') if use_stemming else None
     stem_tag = " (stemmed)" if use_stemming else " (no stemming)"
 
@@ -102,12 +92,13 @@ def create_vocabulary(data_dir, use_stemming):
                 except Exception as e:
                     print(f"Error processing file {filename} in negative: {e}")
 
-    # Create vocabulary and mapping
+    # Combine positive and negative words into vocabulary
     vocabulary = positive_words.union(negative_words)
+    # Create sorted list and mapping for efficient lookup
     vocab_list = sorted(list(vocabulary))
     vocab_map = {word: i for i, word in enumerate(vocab_list)}
     
-    # Create class-specific word dictionaries
+    # Create dictionaries to track which words belong to which class
     class_words = {
         1: {word: 1 for word in positive_words},  # Positive class
         0: {word: 0 for word in negative_words}   # Negative class
@@ -117,20 +108,6 @@ def create_vocabulary(data_dir, use_stemming):
     return vocabulary, vocab_map, class_words
 
 def vectorize_data(data_dir, vocab_map, representation_type, use_stemming):
-    """
-    Converts documents into feature vectors based on a given vocabulary map.
-
-    Args:
-        data_dir (str): Path to the directory containing 'positive' and 'negative' subdirectories.
-        vocab_map (dict): Map from word to index.
-        representation_type (str): 'frequency' or 'binary'.
-        use_stemming (bool): Whether to apply stemming to document tokens.
-
-    Returns:
-        tuple: A tuple containing:
-            - numpy.ndarray: Feature vectors (documents x vocabulary size).
-            - numpy.ndarray: Labels (1 for positive, 0 for negative).
-    """
     vocab_size = len(vocab_map)
     feature_vectors = []
     labels = []
@@ -143,6 +120,7 @@ def vectorize_data(data_dir, vocab_map, representation_type, use_stemming):
         print(f"Error: Base directory not found at {data_dir}")
         return np.array([]), np.array([])
 
+    # Process both positive and negative documents
     for label_int, sub_dir in enumerate(['negative', 'positive']):
         current_dir = os.path.join(data_dir, sub_dir)
         if not os.path.isdir(current_dir):
@@ -152,6 +130,7 @@ def vectorize_data(data_dir, vocab_map, representation_type, use_stemming):
         for filename in os.listdir(current_dir):
             filepath = os.path.join(current_dir, filename)
             if os.path.isfile(filepath):
+                # Initialize document vector based on representation type
                 if representation_type == 'binary':
                     doc_vector = np.zeros(vocab_size, dtype=int)
                     unique_tokens = set()
@@ -165,12 +144,14 @@ def vectorize_data(data_dir, vocab_map, representation_type, use_stemming):
                         processed_tokens = tokenize_and_process(text, use_stemming, stemmer)
 
                         if representation_type == 'binary':
+                            # For binary representation, just mark presence of words
                             for token in processed_tokens:
                                 if token in vocab_map:
                                     unique_tokens.add(token)
                             for token in unique_tokens:
                                 doc_vector[vocab_map[token]] = 1
                         else:  # frequency
+                            # For frequency representation, count word occurrences
                             for token in processed_tokens:
                                 if token in vocab_map:
                                     token_counts[token] += 1
@@ -185,35 +166,23 @@ def vectorize_data(data_dir, vocab_map, representation_type, use_stemming):
     return np.array(feature_vectors), np.array(labels)
 
 def train_naive_bayes(features, labels):
-    """
-    Trains a Multinomial Naive Bayes classifier.
-
-    Args:
-        features (numpy.ndarray): Document-term matrix (docs x vocab_size).
-        labels (numpy.ndarray): Corresponding labels (0 or 1) for each document.
-
-    Returns:
-        tuple: A tuple containing:
-            - numpy.ndarray: Log prior probabilities for each class.
-            - numpy.ndarray: Log likelihood probabilities for each word given class.
-    """
     n_docs, vocab_size = features.shape
-    n_classes = 2  # We have positive (1) and negative (0)
+    n_classes = 2  # Binary classification: positive (1) and negative (0)
 
-    # Calculate priors
+    # Calculate class prior probabilities
     log_priors = np.zeros(n_classes)
     for c in range(n_classes):
         n_docs_in_class = np.sum(labels == c)
         log_priors[c] = np.log(n_docs_in_class / n_docs)
 
-    # Calculate likelihoods
+    # Calculate word likelihoods for each class
     log_likelihoods = np.zeros((vocab_size, n_classes))
     for c in range(n_classes):
         docs_in_class = features[labels == c]
         word_counts_in_class = np.sum(docs_in_class, axis=0)
         total_words_in_class = np.sum(word_counts_in_class)
         
-        # Add-1 smoothing
+        # Apply Laplace smoothing (add-1 smoothing)
         numerator = word_counts_in_class + 1
         denominator = total_words_in_class + vocab_size
         log_likelihoods[:, c] = np.log(numerator) - np.log(denominator)
@@ -221,22 +190,11 @@ def train_naive_bayes(features, labels):
     return log_priors, log_likelihoods
 
 def predict_naive_bayes(features, log_priors, log_likelihoods):
-    """
-    Predicts class labels for features using trained Naive Bayes parameters.
-
-    Args:
-        features (numpy.ndarray): Test features (n_test_docs x vocab_size).
-        log_priors (numpy.ndarray): Log prior probabilities.
-        log_likelihoods (numpy.ndarray): Log likelihoods (vocab_size x 2).
-
-    Returns:
-        numpy.ndarray: Predicted labels (0 or 1) for each test document.
-    """
-    # Calculate score for each class for all documents
+    # Initialize scores for each class
     scores = np.zeros((features.shape[0], 2))
     
     for c in range(2):
-        # Start with log prior
+        # Start with log prior probability
         scores[:, c] = log_priors[c]
         
         # Add log likelihood for each word in the document
@@ -245,26 +203,11 @@ def predict_naive_bayes(features, log_priors, log_likelihoods):
             for idx in word_indices:
                 scores[i, c] += log_likelihoods[idx, c] * features[i, idx]
 
-    # Predict the class with the higher score
+    # Predict the class with the highest score
     predictions = np.argmax(scores, axis=1)
     return predictions
 
 def calculate_metrics(true_labels, predictions):
-    """
-    Calculates accuracy, precision, recall, and F1 score.
-
-    Args:
-        true_labels (numpy.ndarray): True labels (0 or 1).
-        predictions (numpy.ndarray): Predicted labels (0 or 1).
-
-    Returns:
-        tuple: A tuple containing:
-            - float: Accuracy.
-            - float: Precision.
-            - float: Recall.
-            - float: F1 score.
-            - dict: Confusion matrix.
-    """
     # Calculate confusion matrix
     TN = np.sum((true_labels == 0) & (predictions == 0))
     FP = np.sum((true_labels == 0) & (predictions == 1))

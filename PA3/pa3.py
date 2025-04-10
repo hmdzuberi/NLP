@@ -229,7 +229,7 @@ def calculate_metrics(true_labels, predictions):
 if __name__ == '__main__':
     train_data_dir = 'tweet/train'
     test_data_dir = 'tweet/test'
-    results_file = 'results2.log'
+    results_file = 'results.log'
 
     results_log_content = [] # Store lines for the log file
 

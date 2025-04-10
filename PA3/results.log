@@ -1,37 +1,45 @@
 ===== No-Stemming =====
 
 --- Model: No-Stemming + Frequency ---
-Accuracy: 0.8890
+Accuracy: 0.8898
+Precision: 0.8931
+Recall: 0.6929
+F1 Score: 0.7804
 Confusion Matrix:
   Predicted:
-         Neg(0) Pos(1)
-Actual Neg(0) [ 2916  |  84   ]
-Actual Pos(1) [  380  |  802  ]
+    Negative: 2902 (TN), 98 (FP)
+    Positive: 363 (FN), 819 (TP)
 
 
 --- Model: No-Stemming + Binary ---
-Accuracy: 0.8864
+Accuracy: 0.8919
+Precision: 0.9110
+Recall: 0.6844
+F1 Score: 0.7816
 Confusion Matrix:
   Predicted:
-         Neg(0) Pos(1)
-Actual Neg(0) [ 2925  |  75   ]
-Actual Pos(1) [  400  |  782  ]
+    Negative: 2921 (TN), 79 (FP)
+    Positive: 373 (FN), 809 (TP)
 
 ===== Stemmed =====
 
 --- Model: Stemmed + Frequency ---
-Accuracy: 0.8960
+Accuracy: 0.8998
+Precision: 0.8995
+Recall: 0.7267
+F1 Score: 0.8039
 Confusion Matrix:
   Predicted:
-         Neg(0) Pos(1)
-Actual Neg(0) [ 2911  |  89   ]
-Actual Pos(1) [  346  |  836  ]
+    Negative: 2904 (TN), 96 (FP)
+    Positive: 323 (FN), 859 (TP)
 
 
 --- Model: Stemmed + Binary ---
-Accuracy: 0.8950
+Accuracy: 0.8993
+Precision: 0.9140
+Recall: 0.7107
+F1 Score: 0.7996
 Confusion Matrix:
   Predicted:
-         Neg(0) Pos(1)
-Actual Neg(0) [ 2924  |  76   ]
-Actual Pos(1) [  363  |  819  ]
+    Negative: 2921 (TN), 79 (FP)
+    Positive: 342 (FN), 840 (TP)

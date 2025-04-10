@@ -1,0 +1,18 @@
+===== Naive Bayes with TF-IDF Features =====
+
+===== Model: No-Stemming + TF-IDF ====
+Accuracy: 0.7848
+Confusion Matrix:
+  Predicted:
+         Neg(0) Pos(1)
+Actual Neg(0) [ 2996  |   4   ]
+Actual Pos(1) [  896  |  286  ]
+
+
+===== Model: Stemmed + TF-IDF ====
+Accuracy: 0.7793
+Confusion Matrix:
+  Predicted:
+         Neg(0) Pos(1)
+Actual Neg(0) [ 2997  |   3   ]
+Actual Pos(1) [  920  |  262  ]

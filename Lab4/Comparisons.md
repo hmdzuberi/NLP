@@ -1,5 +1,10 @@
 # AIT 526 Lab 4
+- April 24, 2025
+
 - Hamaad Zuberi
+- G01413525
+
+
 
 I couldn't figure out to present the answers so I've exported notebooks for each implementation of the different parameters asked (see file names). The `result_base.html` contains the output of the base result (64 batch size, 0.001 learning rate, 3 layers, 512 layer size, and using ReLU activation function).
 

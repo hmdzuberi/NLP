@@ -1,7 +1,7 @@
 # AIT 526 Lab 4
 - Hamaad Zuberi
 
-I couldn't figure out to present the answers so I've written exported notebooks for each implementation of the different parameters asked (see file names). The `result_base.html` contains the output of the base result (64 batch size, 0.0001 learning rate, 3 layers, 512 layer size, and using ReLU activation function).
+I couldn't figure out to present the answers so I've exported notebooks for each implementation of the different parameters asked (see file names). The `result_base.html` contains the output of the base result (64 batch size, 0.001 learning rate, 3 layers, 512 layer size, and using ReLU activation function).
 
 ## 4.1 Change neural network parameters
 ### 4.1.1 Batch size: 16, 32, 64
@@ -14,11 +14,11 @@ Changing the batch_size would directly affect the number of iterations within th
 
 (see cell 5)
 
-Learning rate directly effects learning speed and the number of training epochs. A higher learning rate converges faster initially but carries risks, while a lower learning rate converges slower but can be more stable and potentially more precise if given enough time.
+Higher learning rates (e.g., 0.01) usually lead to faster progress but can be unstable; lower rates (0.001, 0.0001) are more stable but slower. In limited epochs, 0.01 is expected to perform best. Results matched expectations—0.01 (81.2%) > 0.001 (64.5%) > 0.0001 (40.7%).
 
+le=0.0001 Accuracy: 40.7%, Avg loss: 2.247688
 le=0.001 Accuracy: 64.5%, Avg loss: 1.117848
 le=0.01 Accuracy: 81.2%, Avg loss: 0.519866
-le=0.1 Accuracy: 84.9%, Avg loss: 0.403991
 
 ## 4.2 Change neural network models
 ### 4.2.1 Number of layers: 1 layer, 2 layers, 3 layers

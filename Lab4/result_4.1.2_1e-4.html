@@ -3,7 +3,7 @@
 <html lang="en">
 <head><meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>result_4.1.2_2</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>result_4.1.2_1e-4</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <style type="text/css">
     pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -7534,11 +7534,11 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>tensor([[ 1.3914, -0.5057,  0.6046],
-        [-0.9544, -0.8276, -0.8558],
-        [ 0.0600, -0.1529, -0.8530],
-        [-0.0571, -0.5054,  0.3169],
-        [ 2.9377, -1.6874,  0.5389]])
+<pre>tensor([[ 0.1064, -0.9493, -0.7570],
+        [-2.1273,  1.2218, -1.1763],
+        [-0.4990, -0.5391,  0.1346],
+        [-0.2213, -0.3599, -0.0463],
+        [-1.8120,  1.9631, -1.1363]])
 </pre>
 </div>
 </div>
@@ -7683,7 +7683,7 @@ NeuralNetwork(
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">loss_fn</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">CrossEntropyLoss</span><span class="p">()</span>
-<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-1</span><span class="p">)</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">optim</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="o">=</span><span class="mf">1e-4</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -7775,78 +7775,78 @@ NeuralNetwork(
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Epoch 1
 -------------------------------
-loss: 2.302019  [   64/60000]
-loss: 0.904437  [ 6464/60000]
-loss: 0.582487  [12864/60000]
-loss: 0.696266  [19264/60000]
-loss: 0.611553  [25664/60000]
-loss: 0.501349  [32064/60000]
-loss: 0.534593  [38464/60000]
-loss: 0.592506  [44864/60000]
-loss: 0.613978  [51264/60000]
-loss: 0.465190  [57664/60000]
+loss: 2.312522  [   64/60000]
+loss: 2.303869  [ 6464/60000]
+loss: 2.305863  [12864/60000]
+loss: 2.308734  [19264/60000]
+loss: 2.298192  [25664/60000]
+loss: 2.308173  [32064/60000]
+loss: 2.304682  [38464/60000]
+loss: 2.304774  [44864/60000]
+loss: 2.298774  [51264/60000]
+loss: 2.300731  [57664/60000]
 Test Error: 
- Accuracy: 78.9%, Avg loss: 0.559515 
+ Accuracy: 16.3%, Avg loss: 2.297165 
 
 Epoch 2
 -------------------------------
-loss: 0.427386  [   64/60000]
-loss: 0.446328  [ 6464/60000]
-loss: 0.383435  [12864/60000]
-loss: 0.435113  [19264/60000]
-loss: 0.406091  [25664/60000]
-loss: 0.442672  [32064/60000]
-loss: 0.400646  [38464/60000]
-loss: 0.506728  [44864/60000]
-loss: 0.514092  [51264/60000]
-loss: 0.419844  [57664/60000]
+loss: 2.300435  [   64/60000]
+loss: 2.292981  [ 6464/60000]
+loss: 2.291996  [12864/60000]
+loss: 2.297830  [19264/60000]
+loss: 2.286643  [25664/60000]
+loss: 2.293144  [32064/60000]
+loss: 2.294202  [38464/60000]
+loss: 2.291859  [44864/60000]
+loss: 2.287717  [51264/60000]
+loss: 2.288328  [57664/60000]
 Test Error: 
- Accuracy: 82.2%, Avg loss: 0.471809 
+ Accuracy: 20.9%, Avg loss: 2.284792 
 
 Epoch 3
 -------------------------------
-loss: 0.319286  [   64/60000]
-loss: 0.366624  [ 6464/60000]
-loss: 0.314914  [12864/60000]
-loss: 0.360323  [19264/60000]
-loss: 0.331060  [25664/60000]
-loss: 0.428913  [32064/60000]
-loss: 0.363001  [38464/60000]
-loss: 0.462082  [44864/60000]
-loss: 0.461238  [51264/60000]
-loss: 0.390762  [57664/60000]
+loss: 2.288759  [   64/60000]
+loss: 2.282412  [ 6464/60000]
+loss: 2.278601  [12864/60000]
+loss: 2.287292  [19264/60000]
+loss: 2.275264  [25664/60000]
+loss: 2.278653  [32064/60000]
+loss: 2.283938  [38464/60000]
+loss: 2.279169  [44864/60000]
+loss: 2.276702  [51264/60000]
+loss: 2.276060  [57664/60000]
 Test Error: 
- Accuracy: 83.3%, Avg loss: 0.442107 
+ Accuracy: 29.7%, Avg loss: 2.272587 
 
 Epoch 4
 -------------------------------
-loss: 0.279454  [   64/60000]
-loss: 0.332139  [ 6464/60000]
-loss: 0.273144  [12864/60000]
-loss: 0.316047  [19264/60000]
-loss: 0.312080  [25664/60000]
-loss: 0.410100  [32064/60000]
-loss: 0.330608  [38464/60000]
-loss: 0.429446  [44864/60000]
-loss: 0.415858  [51264/60000]
-loss: 0.362534  [57664/60000]
+loss: 2.277215  [   64/60000]
+loss: 2.271959  [ 6464/60000]
+loss: 2.265450  [12864/60000]
+loss: 2.276869  [19264/60000]
+loss: 2.263902  [25664/60000]
+loss: 2.264238  [32064/60000]
+loss: 2.273605  [38464/60000]
+loss: 2.266476  [44864/60000]
+loss: 2.265545  [51264/60000]
+loss: 2.263618  [57664/60000]
 Test Error: 
- Accuracy: 83.9%, Avg loss: 0.427206 
+ Accuracy: 36.5%, Avg loss: 2.260295 
 
 Epoch 5
 -------------------------------
-loss: 0.264243  [   64/60000]
-loss: 0.315299  [ 6464/60000]
-loss: 0.236194  [12864/60000]
-loss: 0.297068  [19264/60000]
-loss: 0.301638  [25664/60000]
-loss: 0.383086  [32064/60000]
-loss: 0.303295  [38464/60000]
-loss: 0.384330  [44864/60000]
-loss: 0.395077  [51264/60000]
-loss: 0.352735  [57664/60000]
+loss: 2.265518  [   64/60000]
+loss: 2.261321  [ 6464/60000]
+loss: 2.252239  [12864/60000]
+loss: 2.266266  [19264/60000]
+loss: 2.252315  [25664/60000]
+loss: 2.249597  [32064/60000]
+loss: 2.263035  [38464/60000]
+loss: 2.253435  [44864/60000]
+loss: 2.253999  [51264/60000]
+loss: 2.250875  [57664/60000]
 Test Error: 
- Accuracy: 84.9%, Avg loss: 0.403991 
+ Accuracy: 40.7%, Avg loss: 2.247688 
 
 Done!
 </pre>
